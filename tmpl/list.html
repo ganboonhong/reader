@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+
+    </head>
+    <body>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>author</th>
+                    <th>title</th>
+                    <th>description</th>
+                    <th>publishedAt</th>
+                    <th>content</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{range .}}
+                    <tr>
+                        <td>{{.Author}}</td>
+                        <td>{{.Title}}</td>
+                        <td>{{.Description}}</td>
+                        <td>{{.PublishedAt}}</td>
+                        <td>{{.Content}}</td>
+                    </tr>
+                {{end}}
+            </tbody>
+        </table>
+    </body>
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+
+    </script>
+</html>
