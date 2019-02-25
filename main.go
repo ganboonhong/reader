@@ -54,8 +54,8 @@ func main() {
 
 	// fmt.Println(string(b))
 
-	http.HandleFunc("/list/", func(w http.ResponseWriter, r *http.Request) {
-		t, _ := template.ParseFiles("tmpl/list.html")
+	http.HandleFunc("/list2/", func(w http.ResponseWriter, r *http.Request) {
+		t, _ := template.ParseFiles("tmpl/list2.html")
 		b, err := ioutil.ReadFile("debug.json")
 		if err != nil {
 			fmt.Println(err)
@@ -63,16 +63,14 @@ func main() {
 		}
 		// fmt.Println(string(b))
 
-		b, err = ioutil.ReadFile("debug.json")
-		if err != nil {
-			fmt.Println(err)
-			return
-		}
 		var Articles []Article
 		err = json.Unmarshal(b, &Articles)
 
 		t.Execute(w, Articles)
 	})
+
+    http.Handle("/style/", http.StripPrefix("/style/", http.FileServer(http.Dir("tmpl/style"))))
+
 
     log.Fatal(http.ListenAndServe(":8080", nil))
 }
