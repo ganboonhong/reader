@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"html/template"
 	"net/http"
 
 	"../model"
@@ -51,4 +52,16 @@ func (a ArticleService) GetStaticArticles()([]model.Article, error){
 		return nil, fmt.Errorf("could not decode json: %v", err)
 	}
 	return Articles, nil
+}
+
+func (a ArticleService) ArticleHandler(w http.ResponseWriter, r *http.Request){
+	t, _ := template.ParseFiles("tmpl/list3.html")
+	ArticleService := ArticleService{}
+	// articles, err := ArticleService.GetArticles()
+	articles, err := ArticleService.GetStaticArticles()
+
+	if err != nil {
+		fmt.Println(err)
+	}
+	t.Execute(w, articles)
 }
