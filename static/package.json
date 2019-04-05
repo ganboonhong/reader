@@ -13,6 +13,7 @@
     "datatables.net-bs4": "^1.10.19",
     "daterangepicker": "^3.0.3",
     "select2": "^4.0.6-rc.1",
-    "tether": "^1.4.5"
+    "tether": "^1.4.5",
+    "toastr": "^2.1.4"
   }
 }

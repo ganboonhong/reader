@@ -8,6 +8,7 @@ class Article {
         this._initArticleSourceSelect2();
         this._initMainTable();
         this._bindMenuButton();
+        this._bindSubmitSourceFilter();
 
         this.table;
     }
@@ -19,6 +20,8 @@ class Article {
             processing: true,
             serverSide: true,
             ordering: false,
+            searching: false,
+            lengthChange: false,
             ajax: {
                 url: "get_article",
                 data: function(dt) {
@@ -26,7 +29,7 @@ class Article {
                         draw: ++draw,
                         s_date: $(`#${_t.daterangepickerId}`).data('daterangepicker').startDate.format('YYYY-MM-DD'),
                         e_date: $(`#${_t.daterangepickerId}`).data('daterangepicker').endDate.format('YYYY-MM-DD'),
-                        article_sources: $('#sidebar-wrapper #article_source').val()
+                        article_sources: _t._getSourceFilter()
                     };
                 }
             },
@@ -35,7 +38,7 @@ class Article {
                 {
                     targets: ['title_th'],
                     render: function(data, type, row) {
-                        return data
+                        return _t._getTitleEle(data, row)
                     },
                 }, {
                     targets: ['descr_th'],
@@ -45,14 +48,9 @@ class Article {
                 }, {
                     targets: ['published_th'],
                     render: function(data, type, row) {
-                        return data
+                        return _t._getPublishedAtEle(data)
                     },
-                }, {
-                    targets: ['content_th'],
-                    render: function(data, type, row) {
-                        return data
-                    },
-                },
+                }
             ],
             columns: [
 
@@ -61,9 +59,7 @@ class Article {
                 }, {
                     data: "description",
                 }, {
-                    data: "publishedAt",
-                }, {
-                    data: "content",
+                    data: "published_at",
                 }
             ]
         });
@@ -81,14 +77,14 @@ class Article {
 
     _initArticleSourceSelect2() {
         const _t = this;
-        const $select2 = $('#sidebar-wrapper #article_source');
+        const $select2 = $('#sidebar-wrapper .article_source');
         $select2.select2({
-            width: "100%",
+            placeholder: "Please select a source",
+            width: "95%",
             multiple: true,
         });
-        $select2.on("change", function(e) {
-            _t.table.ajax.reload();
-        })
+        $select2.val('').change();
+        $('#sidebar-wrapper #comprehensive').val('cnn').change(); // default source
     }
 
     _bindMenuButton() {
@@ -96,5 +92,36 @@ class Article {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
+    }
+
+    _bindSubmitSourceFilter() {
+        const _t = this;
+        $("#sidebar-wrapper").on("click", "#submit_source", function() {
+            if (!_t._getSourceFilter().length) {
+                toastr.warning("Please select a source")
+                return;
+            }
+            _t.table.ajax.reload();
+        })
+    }
+
+    _getPublishedAtEle(data) {
+        return moment(data).add(8, 'hours').format('YYYY-MM-DD HH:mm:ss');
+    }
+
+    _getSourceFilter() {
+        let sources = [];
+        $("#sidebar-wrapper .article_source").each(function() {
+            const selected = $(this).val();
+            sources.push(...selected)
+        });
+
+        return sources;
+    }
+
+    _getTitleEle(data, row) {
+        let str = `[<b>${row.Source.name}</b>] `;
+        str += data;
+        return str;
     }
 }

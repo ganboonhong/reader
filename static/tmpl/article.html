@@ -18,6 +18,7 @@
     <link href="/node_modules/daterangepicker/daterangepicker.css" rel="stylesheet">
     <link href="/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/node_modules/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="/node_modules/toastr/build/toastr.min.css">
 
 
 </head>
@@ -31,19 +32,38 @@
       <div class="sidebar-heading">Category</div>
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light">Top Headlines</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">All</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Tech</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Sport</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Economics</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">
+            <b>By sources</b>
             <label for="article_source">
-                Sources
-                <select id="article_source">
-                  <option value="techcrunch">TechCrunch</option>
+                Comprehensive
+                <select id="comprehensive" class="article_source">
                   <option value="cnn">CNN</option>
                   <option value="time">Time</option>
+                  <option value="bbc-news">BBC News</option>
+                </select>
+                 Techology
+                <select class="article_source">
+                  <option value="techcrunch">TechCrunch</option>
+                  <option value="wired">Wired</option>
+                  <option value="reuters">Reuters</option>
+                  <option value="the-huffington-post">HuffPost</option>
+                  <option value="engadget">Engadget</option>
+                </select>
+                Business
+                <select class="article_source">
+                  <option value="the-economist">The Economist</option>
+                  <option value="bloomberg">Bloomberg</option>
+                  <option value="business-insider">Business Insider</option>
+                </select>
+
+                Sports
+                <select class="article_source">
+                  <option value="espn">ESPN</option>
+                  <option value="bleacher-report">Bleacher Report</option>
+                  <option value="fox-sports">Fox Sports</option>
                 </select>
             </label>
+            <button id="submit_source" type="button" class="btn btn-success">Search</button>
         </a>
       </div>
     </div>
@@ -98,8 +118,7 @@
                 <tr>
                     <th class="title_th">Title</th>
                     <th class="descr_th">Description</th>
-                    <th class="published_th">Published At</th>
-                    <th class="content_th">Content</th>
+                    <th class="published_th">Published</th>
                 </tr>
             </thead>
             <tbody>
@@ -127,6 +146,7 @@
     <script src="/node_modules/moment/min/moment.min.js"></script>
     <script src="/node_modules/daterangepicker/daterangepicker.js"></script>
     <script src="/node_modules/select2/dist/js/select2.min.js"></script>
+    <script src="/node_modules/toastr/build/toastr.min.js"></script>
     <script src="/js/lib/Article.js"></script>
     <script src="/js/entry/article.js"></script>
 

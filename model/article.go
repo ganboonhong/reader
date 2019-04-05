@@ -7,4 +7,10 @@ type Article struct {
 	Url         string `json:"url"`
 	PublishedAt string `json:"publishedAt"`
 	Content     string `json:"content"`
+	Source  	Source `json:source`
+}
+
+type Source struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
 }

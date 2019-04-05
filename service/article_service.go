@@ -10,7 +10,6 @@ import (
 	// "reflect"
 	"strconv"
 	"time"
-	// "os"
 
 	"../model"
 
@@ -34,8 +33,8 @@ type GetArticlesParam struct {
 	e_date time.Time
 }
 
-type Sources struct {
-	sources []string
+type Source struct {
+	source_name string `json:"name"`
 }
 
 func (a ArticleService) GetArticles(param GetArticlesParam) ([]model.Article, error) {
@@ -51,6 +50,7 @@ func (a ArticleService) GetArticles(param GetArticlesParam) ([]model.Article, er
 		From: param.s_date,
 		To: param.e_date,
 		Language: "en",
+		SortBy: "popularity",
 	})
 
 	if err != nil {
@@ -99,19 +99,18 @@ func (a ArticleService) GetArticleHandler(w http.ResponseWriter, r *http.Request
 	ArticleService := ArticleService{}
 
 	query := r.URL.Query()
-	// b, err := json.MarshalIndent(query, "", "  ")
-	// os.Stdout.Write(b)
 	
-	s_date, _ := time.Parse(time.RFC3339, query["e_date"][0])
-	e_date, _ := time.Parse(time.RFC3339, query["e_date"][0])
-	param := GetArticlesParam{
-		s_date : s_date,
-		e_date : e_date,
-		article_sources : query["article_sources[]"],
-	}
-	articles, err := ArticleService.GetArticles(param)
+	// s_date, err := time.Parse(time.RFC3339, query["e_date"][0] + "T00:00:00Z")
+	// e_date, err := time.Parse(time.RFC3339, query["e_date"][0] + "T00:00:00Z")
+	// param := GetArticlesParam{
+	// 	s_date : s_date,
+	// 	e_date : e_date,
+	// 	article_sources : query["article_sources[]"],
+	// }
+	// fmt.Println(param)
+	// articles, err := ArticleService.GetArticles(param)
 	
-	// articles, err := ArticleService.GetStaticArticles()
+	articles, err := ArticleService.GetStaticArticles()
 
 	if err != nil {
 		fmt.Println(err)
