@@ -7,6 +7,10 @@ import (
 	"io/ioutil"
 	"html/template"
 	"net/http"
+	// "reflect"
+	"strconv"
+	"time"
+	// "os"
 
 	"../model"
 
@@ -17,11 +21,36 @@ type ArticleService struct{
 
 }
 
-func (a ArticleService) GetArticles() ([]model.Article, error) {
+type ArticleData struct {
+	Draw int64 `json:"draw"`
+	RecordsTotal int `json:"recordsTotal"`
+	RecordsFiltered int `json:"recordsFiltered"`
+	Data []model.Article `json:"data"`
+}
+
+type GetArticlesParam struct {
+	article_sources []string
+	s_date time.Time
+	e_date time.Time
+}
+
+type Sources struct {
+	sources []string
+}
+
+func (a ArticleService) GetArticles(param GetArticlesParam) ([]model.Article, error) {
 	c := newsapi.NewClient("07751a198b5440929cd22fc907b10389", newsapi.WithHTTPClient(http.DefaultClient))
 
-	articles, err := c.GetTopHeadlines(context.Background(), &newsapi.TopHeadlineParameters{
-		Sources: []string{"techcrunch", "cnn", "time"},
+	// articles, err := c.GetTopHeadlines(context.Background(), &newsapi.TopHeadlineParameters{
+		// Sources: []string{"techcrunch", "cnn", "time"},
+	// })
+
+	articles, err := c.GetEverything(context.Background(), &newsapi.EverythingParameters{
+		// Sources: []string{"techcrunch", "cnn", "time"},
+		Sources: param.article_sources,
+		From: param.s_date,
+		To: param.e_date,
+		Language: "en",
 	})
 
 	if err != nil {
@@ -54,14 +83,56 @@ func (a ArticleService) GetStaticArticles()([]model.Article, error){
 	return Articles, nil
 }
 
-func (a ArticleService) ArticleHandler(w http.ResponseWriter, r *http.Request){
-	t, _ := template.ParseFiles("tmpl/list3.html")
-	ArticleService := ArticleService{}
-	// articles, err := ArticleService.GetArticles()
-	articles, err := ArticleService.GetStaticArticles()
+func (a ArticleService) ArticlePageHandler(w http.ResponseWriter, r *http.Request){
+	t, _ := template.ParseFiles("static/tmpl/article.html")
+	var err error
+	var i interface{}
 
 	if err != nil {
 		fmt.Println(err)
 	}
-	t.Execute(w, articles)
+
+	t.Execute(w, i)
+}
+
+func (a ArticleService) GetArticleHandler(w http.ResponseWriter, r *http.Request){
+	ArticleService := ArticleService{}
+
+	query := r.URL.Query()
+	// b, err := json.MarshalIndent(query, "", "  ")
+	// os.Stdout.Write(b)
+	
+	s_date, _ := time.Parse(time.RFC3339, query["e_date"][0])
+	e_date, _ := time.Parse(time.RFC3339, query["e_date"][0])
+	param := GetArticlesParam{
+		s_date : s_date,
+		e_date : e_date,
+		article_sources : query["article_sources[]"],
+	}
+	articles, err := ArticleService.GetArticles(param)
+	
+	// articles, err := ArticleService.GetStaticArticles()
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	draw, err := strconv.ParseInt(query["draw"][0], 10, 64)
+	data := ArticleData {
+		Draw: draw,
+		RecordsTotal: len(articles),
+		RecordsFiltered: len(articles),
+		Data: articles,
+	}
+
+	jsonStr, err := json.Marshal(data)
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	 w.Header().Set("Content-Type", "application/json")
+	 w.Write(jsonStr)
 }

@@ -8,6 +8,6 @@ import (
 )
 
 func main() {
-	router.Routes()
+	router.SetRouter()
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
