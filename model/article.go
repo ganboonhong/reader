@@ -17,6 +17,6 @@ type Source struct {
 }
 
 type ArticleResult struct {
-	TotalResults string `json:"totalResults"`
+	TotalResults int `json:"totalResults"`
 	Articles []Article `json:"articles"`
 }

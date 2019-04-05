@@ -30,6 +30,7 @@ class Article {
                         s_date: $(`#${_t.daterangepickerId}`).data('daterangepicker').startDate.format('YYYY-MM-DD'),
                         e_date: $(`#${_t.daterangepickerId}`).data('daterangepicker').endDate.format('YYYY-MM-DD'),
                         article_sources: _t._getSourceFilter(),
+                        page: $('#mainTable').DataTable().page(),
                         dt: dt
                     };
                 }

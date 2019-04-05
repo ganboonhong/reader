@@ -21,7 +21,7 @@ type ArticleService struct{
 }
 
 type ArticleData struct {
-	Draw int64 `json:"draw"`
+	Draw int `json:"draw"`
 	RecordsTotal int `json:"recordsTotal"`
 	RecordsFiltered int `json:"recordsFiltered"`
 	Data []model.Article `json:"data"`
@@ -38,19 +38,20 @@ type Source struct {
 	source_name string `json:"name"`
 }
 
-func (a ArticleService) GetArticles(param GetArticlesParam) ([]model.Article, error) {
+func (a ArticleService) GetArticles(param GetArticlesParam) (model.ArticleResult, error) {
 	c := newsapi.NewClient("07751a198b5440929cd22fc907b10389", newsapi.WithHTTPClient(http.DefaultClient))
 
 	// articles, err := c.GetTopHeadlines(context.Background(), &newsapi.TopHeadlineParameters{
 		// Sources: []string{"techcrunch", "cnn", "time"},
 	// })
 
-	articles, err := c.GetEverything(context.Background(), &newsapi.EverythingParameters{
+	result, err := c.GetEverything(context.Background(), &newsapi.EverythingParameters{
 		// Sources: []string{"techcrunch", "cnn", "time"},
 		Sources: param.article_sources,
 		From: param.s_date,
 		To: param.e_date,
 		Page: param.page,
+		PageSize: 10,
 		Language: "en",
 		SortBy: "popularity",
 	})
@@ -59,30 +60,36 @@ func (a ArticleService) GetArticles(param GetArticlesParam) ([]model.Article, er
 		panic(err)
 	}
 
-	b, err := json.Marshal(articles.Articles)
+	b, err := json.Marshal(result.Articles)
 
 	var Articles []model.Article
 	err = json.Unmarshal(b, &Articles)
 
 	if err != nil{
-		return nil, fmt.Errorf("could not fetch articles from server: %v", err)
+		return model.ArticleResult{}, fmt.Errorf("could not fetch articles from server: %v", err)
 	}
 
-	return Articles, nil
+	ArticleResult := model.ArticleResult {
+		TotalResults: result.TotalResults,
+		Articles: Articles,
+	}
+
+	return ArticleResult, nil
 }
 
-func (a ArticleService) GetStaticArticles()([]model.Article, error){
+func (a ArticleService) GetStaticArticles()(*model.ArticleResult, error){
 	b, err := ioutil.ReadFile("debug.json")
 	if err != nil {
 		return nil, fmt.Errorf("could not fetch static articles: %v", err)
 	}
 
-	var Articles []model.Article
-	err = json.Unmarshal(b, &Articles)
+	var ArticleResult model.ArticleResult
+	err = json.Unmarshal(b, &ArticleResult)
 	if err != nil {
 		return nil, fmt.Errorf("could not decode json: %v", err)
 	}
-	return Articles, nil
+
+	return &ArticleResult, nil
 }
 
 func (a ArticleService) ArticlePageHandler(w http.ResponseWriter, r *http.Request){
@@ -104,29 +111,37 @@ func (a ArticleService) GetArticleHandler(w http.ResponseWriter, r *http.Request
 	
 	s_date, err := time.Parse(time.RFC3339, query["e_date"][0] + "T00:00:00Z")
 	e_date, err := time.Parse(time.RFC3339, query["e_date"][0] + "T00:00:00Z")
-	page, _ := strconv.Atoi(query["dt[start]"][0])
-	page += 1
+	
+	page, _ := strconv.Atoi(query["page"][0])
+	page += 1;
+	
 	param := GetArticlesParam{
 		s_date : s_date,
 		e_date : e_date,
 		page : page,
 		article_sources : query["article_sources[]"],
 	}
-	articles, err := ArticleService.GetArticles(param)
+	result, err := ArticleService.GetArticles(param)
 	
-	// articles, err := ArticleService.GetStaticArticles()
+	// result, err := ArticleService.GetStaticArticles()
 
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	draw, err := strconv.ParseInt(query["draw"][0], 10, 64)
+	draw, err := strconv.Atoi(query["draw"][0])
+
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
 	data := ArticleData {
 		Draw: draw,
-		RecordsTotal: len(articles),
-		RecordsFiltered: len(articles),
-		Data: articles,
+		RecordsTotal: result.TotalResults,
+		RecordsFiltered: result.TotalResults,
+		Data: result.Articles,
 	}
 
 	jsonStr, err := json.Marshal(data)

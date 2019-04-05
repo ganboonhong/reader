@@ -1,441 +1,125 @@
-[{
-    "source": {
-        "id": "techcrunch",
-        "name": "TechCrunch",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Jon Russell",
-    "title": "Japanese internet giant Recruit has a new $25M blockchain fund",
-    "description": "Crypto market prices may be down significantly, but new investors continue to enter the blockchain space. The latest is Recruit Holdings, the $45 billion Japanese internet giant that owns Glassdoor among other things, which quietly launched a $25 million fund…",
-    "url": "https://techcrunch.com/2019/02/22/recruit-blockchain-fund/",
-    "urlToImage": "https://techcrunch.com/wp-content/uploads/2019/02/recruit.jpg?w=750",
-    "publishedAt": "2019-02-22T13:02:21Z",
-    "content": "Crypto market prices may be down significantly, but new investors continue to enter the blockchain space. The latest is Recruit Holdings, the $45 billion Japanese internet giant that owns Glassdoor among other things, which quietly launched a $25 million fund… [+3756 chars]"
-}, {
-    "source": {
-        "id": "cnn",
-        "name": "CNN",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Arlette Saenz, CNN",
-    "title": "Joe Biden's experience sets him apart. It could also hurt him in 2020.",
-    "description": "If former Vice President Joe Biden enters the 2020 race, his more than four-decades-long career in Washington will face fresh scrutiny, including his work on criminal justice and financial reform issues.",
-    "url": "http://us.cnn.com/2019/02/22/politics/joe-biden-experience-record-2020/index.html",
-    "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190124105524-biden-conference-of-mayors-super-tease.jpg",
-    "publishedAt": "2019-02-22T12:00:09Z",
-    "content": "(CNN)If former Vice President Joe Biden enters the 2020 race, his more than four-decades-long career in Washington will face fresh scrutiny, including his work on criminal justice and financial reform issues.\r\nBiden, who served six terms in the Senate and eig… [+5072 chars]"
-}, {
-    "source": {
-        "id": "techcrunch",
-        "name": "TechCrunch",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Jon Russell",
-    "title": "Apple is offering interest-free financing to boost iPhone sales in China",
-    "description": "Apple is looking to get over its sales woes in China but offering prospective customers interest-free financing with a little help from Alibaba. Apple’s China website now offers financing packages for iPhones that include zero percent interest packages provid…",
-    "url": "https://techcrunch.com/2019/02/22/apple-iphone-interest-free-china/",
-    "urlToImage": "https://techcrunch.com/wp-content/uploads/2018/09/GettyImages-10174979961.jpg?w=600",
-    "publishedAt": "2019-02-22T11:52:33Z",
-    "content": "Apple is looking to get over its sales woes in China but offering prospective customers interest-free financing with a little help from Alibaba.\r\nApple’s China website now offers financing packages for iPhones that include zero percent interest packages provi… [+2297 chars]"
-}, {
-    "source": {
-        "id": "cnn",
-        "name": "CNN",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Katelyn Polantz, CNN",
-    "title": "Mueller could tell all in last major court filing in Paul Manafort's case",
-    "description": "Friday may be the day that special counsel Robert Mueller tells all in the long-running court saga of Paul Manafort's prosecution.",
-    "url": "http://us.cnn.com/2019/02/22/politics/manafort-sentecing-memo-preview/index.html",
-    "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190125135950-04-manafort-hearing-01252019-super-tease.jpg",
-    "publishedAt": "2019-02-22T11:04:46Z",
-    "content": ""
-}, {
-    "source": {
-        "id": "techcrunch",
-        "name": "TechCrunch",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Jon Russell",
-    "title": "Rakuten's Viber chat app plans to charge to operate chatbots in controversial move",
-    "description": "Viber, the messaging app down by Japanese e-commerce firm Rakuten, is poised to implement a controversial new strategy that will see it charge companies that run chatbots on its platform. The conventional wisdom is to work with content companies to help bring…",
-    "url": "https://techcrunch.com/2019/02/22/viber-chatbot-charge/",
-    "urlToImage": "https://techcrunch.com/wp-content/uploads/2019/02/Photo-22-02-2019-5-30-41-pm.jpg?w=750",
-    "publishedAt": "2019-02-22T10:32:32Z",
-    "content": "Viber, the messaging app down by Japanese e-commerce firm Rakuten, is poised to implement a controversial new strategy that will see it charge companies that run chatbots on its platform.\r\nThe conventional wisdom is to work with content companies to help brin… [+5794 chars]"
-}, {
-    "source": {
-        "id": "techcrunch",
-        "name": "TechCrunch",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Rita Liao",
-    "title": "China wants its rural villages to go cashless by 2020",
-    "description": "Residents of even the tiniest far-flung villages in China may soon be able to pay on their phones to run daily errands as Beijing announced this month that it aims to make mobile payments ubiquitous in rural areas by the end of 2020. The plan arrived in a set…",
-    "url": "https://techcrunch.com/2019/02/22/china-wants-its-rural-villages-to-go-cashless-by-2020/",
-    "urlToImage": "https://techcrunch.com/wp-content/uploads/2019/02/rural-china-e1550826044378.jpg?w=751",
-    "publishedAt": "2019-02-22T10:22:48Z",
-    "content": "Residents of even the tiniest far-flung villages in China may soon be able to pay on their phones to run daily errands as Beijing announced this month that it aims to make mobile payments ubiquitous in rural areas by the end of 2020.\r\nThe plan arrived in a se… [+2746 chars]"
-}, {
-    "source": {
-        "id": "cnn",
-        "name": "CNN",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "",
-    "title": "Toobin: Stone went from OK position to almost locked up - CNN Video",
-    "description": "CNN legal analyst Jeffrey Toobin was in court as Judge Amy Berman Jackson restricted Roger Stone's ability to speak publicly about his case after he published an Instagram post featuring Jackson's photo with what appeared to be the crosshairs behind her head.",
-    "url": "http://us.cnn.com/videos/politics/2019/02/22/jeffrey-toobin-roger-stone-in-court-sot-ac360-vpx.cnn",
-    "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190221204515-jeffrey-toobin-02212019-super-tease.jpg",
-    "publishedAt": "2019-02-22T09:08:11.2983419Z",
-    "content": "Chat with us in Facebook Messenger. Find out what's happening in the world as it unfolds."
-}, {
-    "source": {
-        "id": "cnn",
-        "name": "CNN",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "",
-    "title": "Erin Burnett: Cohen knows a lot about Donald Trump - CNN Video",
-    "description": "CNN's Erin Burnett sets the stage as Michael Cohen prepares to testify before three congressional committees on Capitol Hill.",
-    "url": "http://us.cnn.com/videos/politics/2019/02/21/michael-cohen-capitol-hill-burnett-monologue-ebof-vpx.cnn",
-    "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190221191923-burnett-monologue-2-21-2019-super-tease.jpg",
-    "publishedAt": "2019-02-22T06:38:48.9569608Z",
-    "content": "Chat with us in Facebook Messenger. Find out what's happening in the world as it unfolds."
-}, {
-    "source": {
-        "id": "time",
-        "name": "Time",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Scott Smith and Joshua Goodman / AP",
-    "title": "Nicolas Maduro Has Closed Venezuela's Border With Brazil to Block Aid",
-    "description": "Venezuela President Nicolas Maduro closed off his country's border with Brazil, vowing to block the emergency food and medicine",
-    "url": "http://time.com/5535387/venezuela-maduro-block-brazil-border-aid/",
-    "urlToImage": "https://timedotcom.files.wordpress.com/2019/02/gettyimages-1126624340.jpg?quality=85",
-    "publishedAt": "2019-02-22T06:20:47Z",
-    "content": "(CARACAS, Venezuela) — As a showdown looms over humanitarian aid destined for Venezuela, President Nicolas Maduro closed off his country’s border with Brazil, vowing on Thursday to block the emergency food and medicine that has rallied his opponents and which… [+5532 chars]"
-}, {
-    "source": {
-        "id": "cnn",
-        "name": "CNN",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Analysis by Stephen Collinson, CNN",
-    "title": "All the President's broken men",
-    "description": "They once were Donald Trump's strutting, sharp-suited alpha male political and legal fixers, living high and playing the game hard, seemingly immune from the consequences of their willingness to walk on the dark side.",
-    "url": "http://us.cnn.com/2019/02/22/politics/roger-stone-michael-cohen-paul-manafort-trump-broken/index.html",
-    "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/181208131951-trump-manafort-cohen-split-1208-super-tease.jpg",
-    "publishedAt": "2019-02-22T06:04:50Z",
-    "content": "(CNN)They once were Donald Trump's strutting, sharp-suited alpha male political and legal fixers, living high and playing the game hard, seemingly immune from the consequences of their willingness to walk on the dark side.\r\nBut now, hubris has humbled Roger S… [+8847 chars]"
-}, {
-    "source": {
-        "id": "techcrunch",
-        "name": "TechCrunch",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Jon Russell",
-    "title": "Vynn Capital snags investment from Malaysia's MAVCAP for its maiden Southeast Asia fund",
-    "description": "Vynn Capital, a new entrant to Southeast Asia’s startup ecosystem, is gearing up to close its maiden fund after it landed an undisclosed sum from Malaysia Venture Capital Management Bhd (MAVCAP) as one of its anchor LPs. Founded by former Gobi Ventures VC Vic…",
-    "url": "https://techcrunch.com/2019/02/21/vynn-capital-mavcap/",
-    "urlToImage": "https://techcrunch.com/wp-content/uploads/2019/02/malaysia.jpg?w=750",
-    "publishedAt": "2019-02-22T06:00:16Z",
-    "content": "Vynn Capital, a new entrant to Southeast Asia’s startup ecosystem, is gearing up to close its maiden fund after it landed an undisclosed sum from Malaysia Venture Capital Management Bhd (MAVCAP) as one of its anchor LPs.\r\nFounded by former Gobi Ventures VC Vi… [+1990 chars]"
-}, {
-    "source": {
-        "id": "time",
-        "name": "Time",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Associated Press",
-    "title": "The Family of an Alabama Woman Who Joined the Islamic State Has Sued So She Can Come Back",
-    "description": "The father of Hoda Muthana, who joined the Islamic State in Syria, sued the Trump administration to allow her return to the U.S.",
-    "url": "http://time.com/5535363/alabama-woman-joined-islamic-state-suing-us-return/",
-    "urlToImage": "https://timedotcom.files.wordpress.com/2019/02/ap19050820308815.jpg?quality=85",
-    "publishedAt": "2019-02-22T04:51:05Z",
-    "content": "(WASHINGTON) — The father of an Alabama woman who joined the Islamic State in Syria filed suit against the Trump administration Thursday in an effort to allow her return to the United States.\r\nAhmed Ali Muthana argues in the suit filed in federal court in Was… [+1607 chars]"
-}, {
-    "source": {
-        "id": "techcrunch",
-        "name": "TechCrunch",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Jon Russell",
-    "title": "Uber is reportedly close to making a tactical exit from India's food delivery industry",
-    "description": "Uber has said adamantly that it won’t exit India (or any more markets) following a hattrick of retreats from China, Russia and Southeast Asia, but does that include its food delivery business? The answer could well be yes. If media reports are right, Uber is …",
-    "url": "https://techcrunch.com/2019/02/21/uber-eats-swiggy/",
-    "urlToImage": "https://techcrunch.com/wp-content/uploads/2019/02/uber-eats-india-swiggy.jpg?w=750",
-    "publishedAt": "2019-02-22T04:36:41Z",
-    "content": "Uber has said adamantly that it won’t exit India (or any more markets) following a hattrick of retreats from China, Russia and Southeast Asia, but does that include its food delivery business?\r\nThe answer could well be yes. If media reports are right, Uber is… [+1802 chars]"
-}, {
-    "source": {
-        "id": "techcrunch",
-        "name": "TechCrunch",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Jonathan Shieber",
-    "title": "Japan's Hayabusa 2 has landed on an asteroid, shot it with a special bullet, and returned to space",
-    "description": "The Japanese spacecraft Hayabusa 2 has just completed the next phase of its multi-part, multi-year mission by shooting a bullet into the asteroid it had been circling and returning to space. Hopefully, the spacecraft has been able to collect samples of astero…",
-    "url": "https://techcrunch.com/2019/02/21/japans-hayabusa-2-has-landed-on-an-asteroid-shot-it-with-a-special-bullet-and-returned-to-space/",
-    "urlToImage": "https://techcrunch.com/wp-content/uploads/2019/02/Screen-Shot-2019-02-21-at-7.46.23-PM.png?w=764",
-    "publishedAt": "2019-02-22T03:50:59Z",
-    "content": "The Japanese spacecraft Hayabusa 2 has just completed the next phase of its multi-part, multi-year mission by shooting a bullet into the asteroid it had been circling and returning to space.\r\nHopefully, the spacecraft has been able to collect samples of aster… [+1265 chars]"
-}, {
-    "source": {
-        "id": "techcrunch",
-        "name": "TechCrunch",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Rita Liao",
-    "title": "Baidu's video site iQiyi adds 37M subscribers in 2018 amid mounting losses",
-    "description": "China’s Baidu, which is often compared to Alphabet’s Google, is showing no signs of slowing down its pace of betting on video content as its core advertising unit feels the squeeze from rivals. The company’s latest financial results show its video streaming b…",
-    "url": "https://techcrunch.com/2019/02/21/baidu-iqiyi-q4-2018/",
-    "urlToImage": "https://techcrunch.com/wp-content/uploads/2019/02/15171550803558_.pic_hd.jpg?w=764",
-    "publishedAt": "2019-02-22T03:15:09Z",
-    "content": "China’s Baidu, which is often compared to Alphabet’s Google, is showing no signs of slowing down its pace of betting on video content as its core advertising unit feels the squeeze from rivals. The company’s latest financial results show its video streaming b… [+3164 chars]"
-}, {
-    "source": {
-        "id": "techcrunch",
-        "name": "TechCrunch",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Josh Constine",
-    "title": "Facebook removes its Onavo surveillance VPN app from Google Play",
-    "description": "Facebook will end its unpaid market research programs and proactively take its Onavo VPN app off the Google Play store in the wake of backlash following TechCrunch’s investigation about Onavo code being used in a Facebook Research app the sucked up data about…",
-    "url": "https://techcrunch.com/2019/02/21/facebook-removes-onavo/",
-    "urlToImage": "https://techcrunch.com/wp-content/uploads/2019/02/Facebook-Onavo.png?w=729",
-    "publishedAt": "2019-02-22T01:43:39Z",
-    "content": "Facebook will end its unpaid market research programs and proactively take its Onavo VPN app off the Google Play store in the wake of backlash following TechCrunch’s investigation about Onavo code being used in a Facebook Research app the sucked up data about… [+2009 chars]"
-}, {
-    "source": {
-        "id": "cnn",
-        "name": "CNN",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Analysis by Chris Cillizza, CNN Editor-at-large",
-    "title": "What Roger Stone doesn't get",
-    "description": "Roger Stone's hero is Richard Nixon. He has a shrine of Nixon memorabilia in his house. He's fond of flashing Nixon's victory sign -- at the most inappropriate moments.",
-    "url": "http://us.cnn.com/2019/02/21/politics/roger-stone-gag-order/index.html",
-    "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190125170234-roger-stone-video-thumbnail-super-tease.jpg",
-    "publishedAt": "2019-02-22T00:43:39Z",
-    "content": "THE POINT -- NOW ON YOUTUBE! \r\nIn each episode of his weekly YouTube show, Chris Cillizza will delve a little deeper into the surreal world of politics. Click to subscribe!"
-}, {
-    "source": {
-        "id": "techcrunch",
-        "name": "TechCrunch",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Devin Coldewey",
-    "title": "Watch SpaceX launch the first private moon landing mission",
-    "description": "Calling all lunatics — the first fully private moon landing mission is about to take off from Cape Canaveral. A SpaceX Falcon 9 rocket carrying SpaceIL's Beresheet lander is set to take off an hour from now, at 5:45 Pacific time. Watch it right here!",
-    "url": "https://techcrunch.com/2019/02/21/watch-spacex-launch-the-first-private-moon-landing-mission/",
-    "urlToImage": "https://techcrunch.com/wp-content/uploads/2019/02/nusantara.jpg?w=600",
-    "publishedAt": "2019-02-22T00:36:13Z",
-    "content": "Calling all lunatics the first fully private moon landing mission is about to take off from Cape Canaveral. A SpaceX Falcon 9 rocket carrying SpaceIL’s Beresheet lander is set to take off about an hour from now, at 5:45 Pacific time. Watch it right here!\r\nThe… [+1641 chars]"
-}, {
-    "source": {
-        "id": "cnn",
-        "name": "CNN",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Katelyn Polantz, CNN",
-    "title": "Roger Stone cannot speak publicly about case, judge rules",
-    "description": "Federal Judge Amy Berman Jackson on Thursday dramatically restricted Roger Stone's ability to speak publicly about his case after he published an Instagram post with what appeared to be the crosshairs of a gun drawn behind her head.",
-    "url": "http://us.cnn.com/2019/02/21/politics/roger-stone-hearing-instagram-amy-berman-jackson/index.html",
-    "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190213171546-roger-stone-jan-31-super-tease.jpg",
-    "publishedAt": "2019-02-22T00:21:00Z",
-    "content": "Washington (CNN)Federal Judge Amy Berman Jackson on Thursday dramatically restricted Roger Stone's ability to speak publicly about his case after he published an Instagram post with what appeared to be the crosshairs of a gun drawn behind her head.\r\nStone may… [+6525 chars]"
-}, {
-    "source": {
-        "id": "cnn",
-        "name": "CNN",
-        "description": "",
-        "url": "",
-        "category": "",
-        "language": "",
-        "country": "",
-        "urlsToLogos": {
-            "small": "",
-            "medium": "",
-            "large": ""
-        }
-    },
-    "author": "Nina dos Santos",
-    "title": "Senate investigators pursue Moscow-based former Trump associate",
-    "description": "Senate investigators want to question David Geovanis, a Moscow-based American businessman with longstanding ties to President Donald Trump.",
-    "url": "http://us.cnn.com/2019/02/21/politics/senate-trump-russia-david-geovanis-intl/index.html",
-    "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190219172722-david-geovanis-print-super-tease.jpg",
-    "publishedAt": "2019-02-21T23:14:55Z",
-    "content": "London and Moscow (CNN)Senate investigators want to question a Moscow-based American businessman with longstanding ties to President Donald Trump after witnesses told them he could shed light on the President's commercial and personal activities in Russia dat… [+7625 chars]"
-}]
+{
+    "status": "ok",
+    "totalResults": 138,
+    "articles": [{
+        "source": {
+            "id": "cnn",
+            "name": "CNN"
+        },
+        "author": "Augusta Anthony, CNN",
+        "title": "Harvard investigating fencing coach for real estate sale involving student athletes' family",
+        "description": "Harvard University is investigating its head fencing coach amid allegations he conducted a real estate transaction that involved the family of a current and a former student-athlete, the school announced Thursday.",
+        "url": "https://www.cnn.com/2019/04/05/us/harvard-fencing-coach-under-investigation-for-real-estate-sale/index.html",
+        "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/120502164525-harvard-super-tease.jpg",
+        "publishedAt": "2019-04-05T05:04:44Z",
+        "content": "(CNN)Harvard University is investigating its head fencing coach amid allegations he conducted a real estate transaction that involved the family of a current and a former student-athlete, the school announced Thursday. \r\nIn 2016, Coach Peter Brand sold his ho… [+2845 chars]"
+    }, {
+        "source": {
+            "id": "cnn",
+            "name": "CNN"
+        },
+        "author": "Madeline Holcombe and Sheena Jones, CNN",
+        "title": "Police arrest suspect in the killing of four in an office in North Dakota",
+        "description": "Police have arrested a suspect in the deaths of four people at a property management company in North Dakota .",
+        "url": "https://www.cnn.com/2019/04/05/us/mandan-north-dakota-deaths-arrest/index.html",
+        "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190402171508-jason-ziegler-chief-of-police-mandan-super-tease.jpg",
+        "publishedAt": "2019-04-05T06:34:51Z",
+        "content": "(CNN)Police have arrested a suspect in the deaths of four people at a property management company in North Dakota .\r\nChad Isaak, 44, was arrested Thursday on four counts of felony murder days after the slayings at the RJR Maintenance &amp; Management company,… [+1198 chars]"
+    }, {
+        "source": {
+            "id": "cnn",
+            "name": "CNN"
+        },
+        "author": null,
+        "title": "See Beto O'Rourke answer girl's promposal",
+        "description": "During a stop in Sioux City, Iowa, Democratic presidential nominee Beto O'Rourke was asked to prom by a girl in the crowd.",
+        "url": "https://www.cnn.com/videos/politics/2019/04/04/beto-orourke-asked-to-prom-sioux-city-iowa-sot-vpx.cnn",
+        "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190404204648-beto-orourke-prom-1-super-tease.jpg",
+        "publishedAt": "2019-04-05T00:48:52Z",
+        "content": "Chat with us in Facebook Messenger. Find out what's happening in the world as it unfolds."
+    }, {
+        "source": {
+            "id": "cnn",
+            "name": "CNN"
+        },
+        "author": "Lisa Respers France, CNN",
+        "title": "Billy Ray Cyrus sings about diamond rings and Maseratis in Lil Nas X's song",
+        "description": "The Billboard charts may not think Lil Nas X's rap song is country, but  Billy Ray Cyrus has endorsed it and is part of its catchy remix.",
+        "url": "https://www.cnn.com/2019/04/05/entertainment/billy-ray-cyrus-lil-nas-x-remix-drops/index.html",
+        "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190404090459-lil-nas-x-billy-ray-cyrus-split-super-tease.jpg",
+        "publishedAt": "2019-04-05T06:45:04Z",
+        "content": null
+    }, {
+        "source": {
+            "id": "cnn",
+            "name": "CNN"
+        },
+        "author": null,
+        "title": "AOC makes history assembling IKEA furniture",
+        "description": "Freshman lawmaker Alexandria Ocasio-Cortez (D-NY) made history by becoming the first member of Congress to take questions from the electorate while assembling IKEA furniture live on Instagram. CNN's Jeanne Moos reports.",
+        "url": "https://www.cnn.com/videos/politics/2019/04/04/alexandria-ocasio-cortez-assembles-ikea-furniture-live-instagram-moos-pkg-ebof.cnn",
+        "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190404202730-aoc-ikea-furniture-super-tease.jpg",
+        "publishedAt": "2019-04-05T00:52:44Z",
+        "content": "Chat with us in Facebook Messenger. Find out what's happening in the world as it unfolds."
+    }, {
+        "source": {
+            "id": "cnn",
+            "name": "CNN"
+        },
+        "author": "Chris Boyette, CNN",
+        "title": "Inquest finds the Hart parents intentionally killed their 6 adopted kids and themselves",
+        "description": "A coroner's jury Thursday unanimously ruled that Jennifer and Sarah Hart intended for their six adopted children to die along with them when Jennifer Hart drove her family off a California cliff in 2018.",
+        "url": "https://www.cnn.com/2019/04/04/us/inquest-finds-hart-parents-killed-kids-selves/index.html",
+        "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/180328212418-hart-family-super-tease.jpg",
+        "publishedAt": "2019-04-05T02:42:22Z",
+        "content": "(CNN)A coroner's jury Thursday unanimously ruled that Jennifer and Sarah Hart intended for their six adopted children to die along with them when Jennifer Hart drove her family off a California cliff in 2018.\r\n\"The death certificates for Jennifer and Sarah Ha… [+1309 chars]"
+    }, {
+        "source": {
+            "id": "cnn",
+            "name": "CNN"
+        },
+        "author": null,
+        "title": "Timeline of final moments of doomed 737 Max",
+        "description": "CNN's Drew Griffin investigates inside Boeing operations after it acknowledged a software issue possibly caused crashes.",
+        "url": "https://www.cnn.com/videos/tv/2019/04/04/lead-drew-griffin-dnt-boeing-live-jake-tapper.cnn",
+        "urlToImage": "https://cdn.cnn.com/cnnnext/dam/assets/190404112231-01-0404-ethiopian-airlines-super-tease.jpg",
+        "publishedAt": "2019-04-05T11:35:22Z",
+        "content": "Chat with us in Facebook Messenger. Find out what's happening in the world as it unfolds."
+    }, {
+        "source": {
+            "id": "abc-news",
+            "name": "ABC News"
+        },
+        "author": "Matt Zarrell",
+        "title": "Man arrested in quadruple murder at workplace - ABC News",
+        "description": "Man arrested in quadruple murder at workplace ABC News Police arrest Washburn man in connection with Mandan homicides Bismarck Tribune UPDATE: Police make arrest in quadruple homicide KFYR-TV Man arrested on murder charges in connection to 4 slain in Mandan I…",
+        "url": "https://abcnews.go.com/US/person-interest-detained-quadruple-murder-north-dakota-workplace/story?id=62184594",
+        "urlToImage": "https://s.abcnews.com/images/US/rjr-maintenance-management-ap-jef-190401_hpMain_16x9_992.jpg",
+        "publishedAt": "2019-04-05T02:09:59Z",
+        "content": "A man has been arrested in connection to a quadruple murder inside a North Dakota workplace, police said.\r\nChad Isaak, 44, from Washburn, North Dakota, is being held on four counts of AA felony murder, Mandan Police said at a news conference late Thursday. He… [+2055 chars]"
+    }, {
+        "source": {
+            "id": "abc-news",
+            "name": "ABC News"
+        },
+        "author": "Justin Doom, Kelly Terez",
+        "title": "'Start Here': Mueller's team frustrated with Barr as Trump seeks a friendlier Fed",
+        "description": "It's Friday, April 5, 2019. Here's what you need to know to start your day.",
+        "url": "https://abcnews.go.com/US/start-here-muellers-team-frustrated-barr-trump-seeks-friendlier/story?id=62142305",
+        "urlToImage": "https://s.abcnews.com/images/Politics/william-barr-rt-jef-190404_hpMain_16x9_992.jpg",
+        "publishedAt": "2019-04-05T09:03:32Z",
+        "content": "It's Friday, April 5, 2019. Let's start here.\r\n1. Long story short\r\nSome members of special counsel Robert Mueller's team reportedly are unhappy with how their findings have been portrayed by Attorney General William Barr.\r\nIn a four-page letter to Congress t… [+6534 chars]"
+    }, {
+        "source": {
+            "id": "abc-news",
+            "name": "ABC News"
+        },
+        "author": "Max Golembo",
+        "title": "Storm moves into Northeast, while another brings severe weather to South",
+        "description": "Get breaking national and world news, broadcast video coverage, and exclusive interviews.  Find the top news online at ABC news.",
+        "url": "https://abcnews.go.com/US/storm-moves-northeast-brings-severe-weather-south/story?id=62192369",
+        "urlToImage": "https://s.abcnews.com/images/US/flooding-lake-charles-ugc-mo-20190405_hpMain_16x9_992.jpg",
+        "publishedAt": "2019-04-05T10:41:18Z",
+        "content": "Severe storms moved through the Deep South on Thursday bringing flash flooding, damaging winds and hail -- mostly to Louisiana.\r\nThe National Weather Service issued a flash flood emergency on Thursday in Lake Charles, Louisiana, where a whopping 6.42 inches o… [+827 chars]"
+    }]
+}
