@@ -29,7 +29,8 @@ class Article {
                         draw: ++draw,
                         s_date: $(`#${_t.daterangepickerId}`).data('daterangepicker').startDate.format('YYYY-MM-DD'),
                         e_date: $(`#${_t.daterangepickerId}`).data('daterangepicker').endDate.format('YYYY-MM-DD'),
-                        article_sources: _t._getSourceFilter()
+                        article_sources: _t._getSourceFilter(),
+                        dt: dt
                     };
                 }
             },
@@ -59,7 +60,7 @@ class Article {
                 }, {
                     data: "description",
                 }, {
-                    data: "published_at",
+                    data: "publishedAt",
                 }
             ]
         });
@@ -106,7 +107,7 @@ class Article {
     }
 
     _getPublishedAtEle(data) {
-        return moment(data).add(8, 'hours').format('YYYY-MM-DD HH:mm:ss');
+        return moment(data).format('YYYY-MM-DD HH:mm:ss');
     }
 
     _getSourceFilter() {
