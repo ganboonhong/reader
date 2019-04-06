@@ -8,7 +8,7 @@ import (
 	"log"
 	"io/ioutil"
 	"net/http"
-	// "reflect"
+	"net/url"
 	"strconv"
 	"time"
 
@@ -17,77 +17,61 @@ import (
 	"github.com/barthr/newsapi"
 )
 
-type ArticleService struct{
-
-}
-
-type ArticleData struct {
-	Draw int `json:"draw"`
-	RecordsTotal int `json:"recordsTotal"`
-	RecordsFiltered int `json:"recordsFiltered"`
-	Data []model.Article `json:"data"`
-}
-
-type GetArticlesParam struct {
-	article_sources []string
-	country string
-	news_type string
-	s_date time.Time
-	e_date time.Time
-	page int
-}
+type ArticleService struct{}
 
 const (
 	PageSize = 10
+	TypeEveryThing = "everything"
+	TypeTopHeadline = "topheadline"
+	NewsApiKey = "07751a198b5440929cd22fc907b10389"
 )
 
-func (a ArticleService) GetArticles(param GetArticlesParam) (model.ArticleResult, error) {
-	c := newsapi.NewClient("07751a198b5440929cd22fc907b10389", newsapi.WithHTTPClient(http.DefaultClient))
+func (a ArticleService) GetArticles(param *model.ArticlesParam) (*model.ArticleResult, error) {
+	c := newsapi.NewClient(NewsApiKey, newsapi.WithHTTPClient(http.DefaultClient))
 	var b []byte
-	var result *newsapi.ArticleResponse
+	var ArticleResponse *newsapi.ArticleResponse
 	var err error
+	ctx := context.Background()
 
-	switch param.news_type {
-	case "everything":
+	switch param.NewsType {
+	case TypeEveryThing:
 		EverythingParameters := &newsapi.EverythingParameters{
-			Sources: param.article_sources,
-			From: param.s_date,
-			To: param.e_date,
-			Page: param.page,
+			Sources: param.ArticleSources,
+			From: param.DateStart,
+			To: param.DateEnd,
+			Page: param.Page,
 			PageSize: PageSize,
 			Language: "en",
 		}
-		result, err = c.GetEverything(context.Background(), EverythingParameters)
+		ArticleResponse, err = c.GetEverything(ctx, EverythingParameters)
 
-	case "topheadline":
+	case TypeTopHeadline:
 		TopHeadlineParameters := &newsapi.TopHeadlineParameters{
-			// Sources: []string{"techcrunch", "cnn", "time"},
-			// Sources: param.article_sources,
-			Page: param.page,
+			Page: param.Page,
 			PageSize: PageSize,
-			Country: param.country,
+			Country: param.Country,
 		}
-		result, err = c.GetTopHeadlines(context.Background(), TopHeadlineParameters)
+		ArticleResponse, err = c.GetTopHeadlines(ctx, TopHeadlineParameters)
 	}
 
-	b, err = json.Marshal(&result.Articles)
+	b, err = json.Marshal(&ArticleResponse.Articles)
 
 	var Articles []model.Article
 	err = json.Unmarshal(b, &Articles)
 
 	if err != nil{
-		return model.ArticleResult{}, fmt.Errorf("could not fetch articles from server: %v", err)
+		return nil, fmt.Errorf("could not fetch articles from server: %v", err)
 	}
 
 	ArticleResult := model.ArticleResult {
-		TotalResults: result.TotalResults,
+		TotalResults: ArticleResponse.TotalResults,
 		Articles: Articles,
 	}
 
-	return ArticleResult, nil
+	return &ArticleResult, nil
 }
 
-func (a ArticleService) GetStaticArticles(param GetArticlesParam)(*model.ArticleResult, error){
+func (a ArticleService) GetStaticArticles(param *model.ArticlesParam)(*model.ArticleResult, error){
 	b, err := ioutil.ReadFile("debug.json")
 	if err != nil {
 		return nil, fmt.Errorf("could not fetch static articles: %v", err)
@@ -115,31 +99,13 @@ func (a ArticleService) ArticlePageHandler(w http.ResponseWriter, r *http.Reques
 }
 
 func (a ArticleService) GetArticleHandler(w http.ResponseWriter, r *http.Request){
-	ArticleService := ArticleService{}
 	log.SetFlags(log.Lshortfile)
-
-	query := r.URL.Query()
-	s_date, err := time.Parse(time.RFC3339, query["s_date"][0] + "T00:00:00+08:00")
+	ArticleService := ArticleService{}
+	q := r.URL.Query()
+	param, err := getArticleParam(q)
 	if err != nil {
 		log.Println(err)
 		return
-	}
-	e_date, err := time.Parse(time.RFC3339, query["e_date"][0] + "T23:59:59+08:00")
-	if err != nil {
-		log.Println(err)
-		return
-	}
-
-	page, _ := strconv.Atoi(query["page"][0])
-	page += 1;
-	
-	param := GetArticlesParam{
-		s_date: s_date,
-		e_date: e_date,
-		page: page,
-		news_type: query["news_type"][0],
-		article_sources : query["article_sources[]"],
-		country : query["country"][0],
 	}
 
 	// result, err := ArticleService.GetStaticArticles(param)
@@ -149,14 +115,13 @@ func (a ArticleService) GetArticleHandler(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	draw, err := strconv.Atoi(query["draw"][0])
-
+	draw, err := strconv.Atoi(q["draw"][0])
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	data := ArticleData {
+	data := model.DtResponse {
 		Draw: draw,
 		RecordsTotal: result.TotalResults,
 		RecordsFiltered: result.TotalResults,
@@ -164,7 +129,6 @@ func (a ArticleService) GetArticleHandler(w http.ResponseWriter, r *http.Request
 	}
 
 	jsonStr, err := json.Marshal(data)
-
 	if err != nil {
 		log.Println(err)
 		return
@@ -172,4 +136,32 @@ func (a ArticleService) GetArticleHandler(w http.ResponseWriter, r *http.Request
 
 	 w.Header().Set("Content-Type", "application/json")
 	 w.Write(jsonStr)
+}
+
+func getArticleParam(q url.Values) (*model.ArticlesParam, error) {
+	sd, err := time.Parse(time.RFC3339, q["s_date"][0] + "T00:00:00+08:00")
+	if err != nil {
+		return nil, err
+	}
+	ed, err := time.Parse(time.RFC3339, q["e_date"][0] + "T23:59:59+08:00")
+	if err != nil {
+		return nil, err
+	}
+
+	pg, err := strconv.Atoi(q["page"][0])
+	if err != nil {
+		return nil, err
+	}
+	pg += 1;
+
+	p := &model.ArticlesParam{
+		ArticleSources : q["article_sources[]"],
+		Country : q["country"][0],
+		DateEnd: ed,
+		DateStart: sd,
+		NewsType: q["news_type"][0],
+		Page: pg,
+	}
+
+	return p, nil
 }

@@ -53,16 +53,19 @@ class Article {
 
                 {
                     targets: ['title_th'],
+                    width: "25%",
                     render: function(data, type, row) {
                         return _t._getTitleEle(data, row)
                     },
                 }, {
                     targets: ['descr_th'],
+                    width: "70%",
                     render: function(data, type, row) {
                         return data
                     },
                 }, {
                     targets: ['published_th'],
+                    width: "5%",
                     render: function(data, type, row) {
                         return _t._getPublishedAtEle(data)
                     },
