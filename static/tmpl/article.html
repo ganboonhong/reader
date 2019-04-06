@@ -31,10 +31,24 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
       <div class="sidebar-heading">Category</div>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Top Headlines</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">
-            <b>By sources</b>
+        <b>Top Headlines</b>
+            <label for="countries">
+                Countries
+                <select id="countries" class="top_headline_select2">
+                    <option value="tw">Taiwan</option>
+                    <option value="my">Malaysia</option>
+                    <option value="sg">Singapore</option>
+                    <option value="us">United States</option>
+                </select>
+            </label>
+            <button id="submit_top_headline_filter" type="button" class="btn btn-success">Search</button>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">
+            <b>By source</b>
             <label for="article_source">
+                Date
+                <input class="form-control" id="daterangepicker" type="text">
                 Comprehensive
                 <select id="comprehensive" class="article_source">
                   <option value="cnn">CNN</option>
@@ -84,10 +98,6 @@
           <div class="col-9" style="text-align:center;">
             <h2>News Reader</h2>
           </div>
-
-          <div class="col-3" style="margin-left: auto; margin-right: 0;">
-            <input class="form-control" id="daterangepicker" type="text">
-          </div>
         
           <!-- <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item active">
@@ -122,6 +132,11 @@
                 </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>Loading...</td>
+                    <td>Loading...</td>
+                    <td>Loading...</td>
+                </tr>
                 <!-- {{range .}}
                     <tr>
                         <td>{{.Author}}</td>
