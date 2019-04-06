@@ -46,6 +46,11 @@ body {
     padding: 6px;
 }
 
+/*icon*/
+.svg-img {
+    width: 50%;
+}
+
 @media (min-width: 768px) {
   #sidebar-wrapper {
     margin-left: 0;

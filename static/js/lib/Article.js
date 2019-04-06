@@ -53,7 +53,7 @@ class Article {
 
                 {
                     targets: ['title_th'],
-                    width: "25%",
+                    width: "20%",
                     render: function(data, type, row) {
                         return _t._getTitleEle(data, row)
                     },
@@ -69,6 +69,12 @@ class Article {
                     render: function(data, type, row) {
                         return _t._getPublishedAtEle(data)
                     },
+                }, {
+                    targets: ['action_th'],
+                    width: "5%",
+                    render: function(data, type, row) {
+                        return _t._getActionEle(row)
+                    },
                 }
             ],
             columns: [
@@ -79,6 +85,8 @@ class Article {
                     data: "description",
                 }, {
                     data: "publishedAt",
+                }, {
+                    data: "url",
                 }
             ]
         });
@@ -167,6 +175,16 @@ class Article {
     _getTitleEle(data, row) {
         let str = `<b>${row.Source.name}</b> - `;
         str += data;
+        return str;
+    }
+
+    _getActionEle(row) {
+
+        let str = `
+            <a href="${row.url}" target="_blank" title="Open in new tab">
+                <img src="svg/si-glyph-link-1.svg" class="svg-img"/>
+            </a>
+        `;
         return str;
     }
 }

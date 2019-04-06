@@ -30,5 +30,6 @@ func SetRouter(){
 	http.Handle("/style/", http.StripPrefix("/style/", http.FileServer(http.Dir("static/style"))))
 	http.Handle("/bower_components/", http.StripPrefix("/bower_components/", http.FileServer(http.Dir("static/bower_components"))))
 	http.Handle("/node_modules/", http.StripPrefix("/node_modules/", http.FileServer(http.Dir("static/node_modules"))))
+	http.Handle("/svg/", http.StripPrefix("/svg/", http.FileServer(http.Dir("static/glyph-iconset-master/svg"))))
 	http.Handle("/", router)
 }
