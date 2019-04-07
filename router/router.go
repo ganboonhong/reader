@@ -22,7 +22,7 @@ func SetRouter(){
 	var router = mux.NewRouter().StrictSlash(true)
 	ArticleService := service.ArticleService{}
 
-	router.HandleFunc("/article", ArticleService.ArticlePageHandler)
+	router.HandleFunc("/", ArticleService.ArticlePageHandler)
 	router.HandleFunc("/get_article", ArticleService.GetArticleHandler)
 	router.HandleFunc("/favicon.ico", faviconHandler)
 	
