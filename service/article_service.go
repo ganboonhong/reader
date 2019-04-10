@@ -12,7 +12,7 @@ import (
 	"strconv"
 	"time"
 
-	"../model"
+	"github.com/ganboonhong/reader/model"
 
 	"github.com/barthr/newsapi"
 )
@@ -72,7 +72,7 @@ func (a ArticleService) GetArticles(param *model.ArticlesParam) (*model.ArticleR
 }
 
 func (a ArticleService) GetStaticArticles(param *model.ArticlesParam)(*model.ArticleResult, error){
-	b, err := ioutil.ReadFile("debug.json")
+	b, err := ioutil.ReadFile("static/mock_data/article.json")
 	if err != nil {
 		return nil, fmt.Errorf("could not fetch static articles: %v", err)
 	}
@@ -102,14 +102,15 @@ func (a ArticleService) GetArticleHandler(w http.ResponseWriter, r *http.Request
 	log.SetFlags(log.Lshortfile)
 	ArticleService := ArticleService{}
 	q := r.URL.Query()
-	param, err := getArticleParam(q)
+
+	param, err := GetArticleParam(q)
 	if err != nil {
 		log.Println(err)
 		return
 	}
 
-	// result, err := ArticleService.GetStaticArticles(param)
-	result, err := ArticleService.GetArticles(param)
+	result, err := ArticleService.GetStaticArticles(param)
+	// result, err := ArticleService.GetArticles(param)
 	if err != nil {
 		log.Println(err)
 		return
@@ -138,7 +139,7 @@ func (a ArticleService) GetArticleHandler(w http.ResponseWriter, r *http.Request
 	 w.Write(jsonStr)
 }
 
-func getArticleParam(q url.Values) (*model.ArticlesParam, error) {
+func GetArticleParam(q url.Values) (*model.ArticlesParam, error) {
 	sd, err := time.Parse(time.RFC3339, q["s_date"][0] + "T00:00:00+08:00")
 	if err != nil {
 		return nil, err

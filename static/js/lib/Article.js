@@ -182,7 +182,7 @@ class Article {
 
         let str = `
             <a href="${row.url}" target="_blank" title="Open in new tab">
-                <img src="svg/si-glyph-link-1.svg" class="svg-img"/>
+                <img src="static/glyph-iconset-master/svg/si-glyph-link-1.svg" class="svg-img"/>
             </a>
         `;
         return str;

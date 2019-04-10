@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	router "./router"
+	"github.com/ganboonhong/reader/router"
 )
 
 func main() {
