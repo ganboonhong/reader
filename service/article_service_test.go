@@ -2,8 +2,13 @@ package service
 
 import (
 	"log"
-	"testing"
 	"net/url"
+	"reflect"
+	"strconv"
+	"testing"
+	"time"
+
+	"github.com/ganboonhong/reader/model"
 )
 
 func TestGetArticleParam(t *testing.T){
@@ -13,42 +18,32 @@ func TestGetArticleParam(t *testing.T){
 	}
 	q := u.Query()
 
-	got := q["page"][0]
-	want := "0"
-	if got != want {
-		t.Errorf("page: got %v, want %v", got, want)
+	sd, err := time.Parse(time.RFC3339, q["s_date"][0] + "T00:00:00+08:00")
+	if err != nil {
+		t.Errorf("time.Parse error: %v", err)
+	}
+	ed, err := time.Parse(time.RFC3339, q["e_date"][0] + "T23:59:59+08:00")
+	if err != nil {
+		t.Errorf("time.Parse error: %v", err)
 	}
 
-	got = q["s_date"][0]
-	want = "2019-04-05"
-	if got != want {
-		t.Errorf("s_date: got %v, want %v", got, want)
+	pg, err := strconv.Atoi(q["page"][0])
+	if err != nil {
+		t.Errorf("strconv.Atoi error: %v", err)
+	}
+	pg += 1;
+
+	want := &model.ArticlesParam{
+		ArticleSources : q["article_sources[]"],
+		Country : q["country"][0],
+		DateEnd: ed,
+		DateStart: sd,
+		NewsType: q["news_type"][0],
+		Page: pg,
 	}
 
-	got = q["e_date"][0]
-	want = "2019-04-05"
-	if got != want {
-		t.Errorf("e_date: got %v, want %v", got, want)
+	got, err := GetArticleParam(q)
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("GetArticleParam: got %v, want %v", got, want)
 	}
-
-	got_article_sources := q["article_sources[]"]
-	want_article_sources := []string{"cnn"}
-	if len(got_article_sources) != len(want_article_sources) {
-		t.Errorf("article_sources: got %v, want %v", got_article_sources, want_article_sources)
-	}
-
-	for i, v := range got_article_sources {
-		if v != want_article_sources[i] {
-			t.Errorf("article_sources: got %v, want %v", got_article_sources, want_article_sources)
-		}
-	}
-
-	got = q["country"][0]
-	want = "tw"
-	if got != want {
-		t.Errorf("country: got %v, want %v", got, want)
-	}
-
-	p, err := GetArticleParam(q)
-	log.Println(p)
 }
