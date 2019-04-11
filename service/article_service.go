@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/url"
+	"os"
 	"strconv"
 	"time"
 
@@ -87,7 +88,8 @@ func (a ArticleService) GetStaticArticles(param *model.ArticlesParam)(*model.Art
 }
 
 func (a ArticleService) ArticlePageHandler(w http.ResponseWriter, r *http.Request){
-	t, _ := template.ParseFiles("static/tmpl/article.html")
+	gopath := os.Getenv("GOPATH") // unit test will get "runtime error: invalid memory address or nil pointer dereference" if relative path is being used
+	t, _ := template.ParseFiles(gopath + "/src/github.com/ganboonhong/reader/static/tmpl/article.html")
 	var err error
 	var i interface{}
 
