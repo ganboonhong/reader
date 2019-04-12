@@ -1,8 +1,7 @@
 # News Reader
 A platform to read news from different sources
 
-###
-deployment
+### deployment
 1. install Go on Ubuntu // https://tecadmin.net/install-go-on-ubuntu/
 2. git clone this repo // `git clone git@github.com:ganboonhong/reader.git`
 3. check **update binary**
@@ -20,3 +19,6 @@ deployment
 
 ### unit test
 `go test ./...`
+
+### news sources
+News API: https://newsapi.org/
