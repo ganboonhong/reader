@@ -1,2 +1,3 @@
 # ignore 'main' binary file
 main
+log/*
