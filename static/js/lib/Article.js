@@ -4,8 +4,8 @@ class Article {
     constructor() {
         this.daterangepickerId = "daterangepicker";
         this.table;
-        // this.newsType = Article.CONSTANT.NEWS_TYPE.EVERYTHING;
-        this.newsType = Article.CONSTANT.NEWS_TYPE.TOPHEADLINE;
+        this.newsType = Article.CONSTANT.NEWS_TYPE.EVERYTHING;
+        // this.newsType = Article.CONSTANT.NEWS_TYPE.TOPHEADLINE;
 
         this._initDateRangePicker(); // _initMainTable's dependency
         this._initArticleSourceSelect2();
@@ -111,7 +111,7 @@ class Article {
             multiple: true,
         });
         $select2.val('').change();
-        $('#sidebar-wrapper #comprehensive').val('cnn').change(); // default source
+        $('#sidebar-wrapper #tech').val('techcrunch').change(); // default source
     }
 
     _initTopHeadlineSelect2() {
