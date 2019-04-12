@@ -1,5 +1,5 @@
 # News Reader
-A platform to read news from different sources
+A platform to read news from different sources using Go.
 
 ### deployment
 1. install Go on Ubuntu // https://tecadmin.net/install-go-on-ubuntu/
