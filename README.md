@@ -10,7 +10,7 @@ deployment
 5. check **run on server (in background)**
 
 ### run on server (in background)
-`nohup ./main > log/main.out &`
+`nohup ./main > log/main.out &` // use `fuser -k 8080/tcp` to kill a process by port number
 
 ### run on local
 `go run main.go`
