@@ -56,6 +56,9 @@ func (a ArticleService) GetArticles(param *model.ArticlesParam) (*model.ArticleR
 	}
 
 	b, err = json.Marshal(&ArticleResponse.Articles)
+	if err != nil {
+		return nil, fmt.Errorf("could not encode json: %v", err)
+	}
 
 	var Articles []model.Article
 	err = json.Unmarshal(b, &Articles)
