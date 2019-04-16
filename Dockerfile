@@ -11,6 +11,11 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o main
 # the lightweight scratch image we'll
 # run our application within
 FROM alpine:latest AS production
+
+# newsapi defaultBaseURL is "https://newsapi.org/v2/"
+# use `docker run -it reader sh` to enter shell
+# go to /etc/ssl/certs and list this directory, you will the cert files
+RUN apk --no-cache add ca-certificates
 # We have to copy the output from our
 # builder stage to our production stage
 WORKDIR /go/src/github.com/ganboonhong/reader
