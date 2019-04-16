@@ -55,6 +55,7 @@ func (a ArticleService) GetArticles(param *model.ArticlesParam) (*model.ArticleR
 		ArticleResponse, err = c.GetTopHeadlines(ctx, TopHeadlineParameters)
 	}
 
+	fmt.Println(ArticleResponse)
 	b, err = json.Marshal(&ArticleResponse.Articles)
 	if err != nil {
 		return nil, fmt.Errorf("could not encode json: %v", err)
