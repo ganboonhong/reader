@@ -4,12 +4,12 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	// "html/template"
+	"html/template"
 	"log"
 	"io/ioutil"
 	"net/http"
 	"net/url"
-	// "os"
+	"os"
 	"strconv"
 	"time"
 
@@ -90,18 +90,18 @@ func (a ArticleService) GetStaticArticles(param *model.ArticlesParam)(*model.Art
 
 
 func (a ArticleService) ArticlePageHandler(w http.ResponseWriter, r *http.Request){
-	// gopath := os.Getenv("GOPATH") // unit test will get "runtime error: invalid memory address or nil pointer dereference" if relative path is being used (go test ./... will break)
-	// t, _ := template.ParseFiles(gopath + "/src/github.com/ganboonhong/reader/static/tmpl/article.html")
+	gopath := os.Getenv("GOPATH") // unit test will get "runtime error: invalid memory address or nil pointer dereference" if relative path is being used (go test ./... will break)
+	t, _ := template.ParseFiles(gopath + "/src/github.com/ganboonhong/reader/static/tmpl/article.html")
 	// t, _ := template.ParseFiles("static/tmpl/article.html")
-	// var err error
-	// var i interface{}
+	var err error
+	var i interface{}
 
-	// if err != nil {
-	// 	fmt.Println(err)
-	// }
+	if err != nil {
+		fmt.Println(err)
+	}
 
-	// t.Execute(w, i)
-	fmt.Fprint(w, "ok")
+	t.Execute(w, i)
+	// fmt.Fprint(w, "ok")
 }
 
 func (a ArticleService) GetArticleHandler(w http.ResponseWriter, r *http.Request){
