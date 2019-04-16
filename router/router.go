@@ -2,6 +2,7 @@ package router
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 
@@ -20,6 +21,8 @@ func SetRouter(){
 	router.HandleFunc("/get_article", ArticleService.GetArticleHandler)
 	router.HandleFunc("/favicon.ico", faviconHandler)
 	
-	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static/"))))
+	gopath := os.Getenv("GOPATH")
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir(gopath + "/src/github.com/ganboonhong/reader/static/"))))
+	// http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static/"))))
 	http.Handle("/", router)
 }
