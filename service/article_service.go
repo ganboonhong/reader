@@ -118,7 +118,6 @@ func (a ArticleService) GetArticleHandler(w http.ResponseWriter, r *http.Request
 		log.Println(err)
 		return
 	}
-	fmt.Println(param)
 
 	// result, err := ArticleService.GetStaticArticles(param)
 	result, err := ArticleService.GetArticles(param)
