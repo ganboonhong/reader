@@ -14,7 +14,8 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o main
 FROM alpine:latest AS production
 # We have to copy the output from our
 # builder stage to our production stage
-COPY --from=builder /go/src/github.com/ganboonhong/reader .
+RUN mkdir -p /go/src/github.com/ganboonhong/reader
+COPY --from=builder /go/src/github.com/ganboonhong/reader /go/src/github.com/ganboonhong/reader
 # we can then kick off our newly compiled
 # binary exectuable!!
-CMD ["./main"]
+CMD ["/go/src/github.com/ganboonhong/reader/main"]
