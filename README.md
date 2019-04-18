@@ -23,10 +23,10 @@ A platform to read news from different sources using Go.
 ### news sources
 News API: https://newsapi.org/
 
-### run on local (with Docker)
+### run on local (with docker command)
 **Build**  
 Build image:
-`cd ~/go/src/github.com/ganboonhong/reader`  // cd to reader root directory  
+`cd ~/go/src/github.com/ganboonhong/reader`  // cd to reader root directory where Dockerfile resides
 `docker build -t reader .`  
 (-t: image tag)
 
@@ -49,3 +49,9 @@ List images: `docker images`
 Show unstagged images: `docker images -f dangling=true` (-f: filter)  
 Remove single image: `docker rmi IMAGE_ID`  
 Remove all unstageged images: `docker rmi $(docker images -f dangling=true -q)`
+
+
+### run on local (with docker-compose cmd)
+Build image and start container:  
+`cd ~/go/src/github.com/ganboonhong/reader`  // cd to reader root directory where docker-compose.yml resides  
+`docker-compose up`  
