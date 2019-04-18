@@ -52,6 +52,6 @@ Remove all unstageged images: `docker rmi $(docker images -f dangling=true -q)`
 
 
 ### run on local (with docker-compose cmd)
-Build image and start container:
-`cd ~/go/src/github.com/ganboonhong/reader`  // cd to reader root directory where docker-compose.yml resides
-`docker-compose up`
+Build image and start container:  
+`cd ~/go/src/github.com/ganboonhong/reader`  // cd to reader root directory where docker-compose.yml resides  
+`docker-compose up`  
