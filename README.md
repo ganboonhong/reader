@@ -27,7 +27,7 @@ News API: https://newsapi.org/
 **Build**  
 Build image:
 `cd ~/go/src/github.com/ganboonhong/reader`  // cd to reader root directory where Dockerfile resides
-`docker build -t reader .`  
+`docker build -t ganboonhong/reader .`  
 (-t: image tag)
 
 **Run**  
