@@ -119,8 +119,8 @@ func (a ArticleService) GetArticleHandler(w http.ResponseWriter, r *http.Request
 		return
 	}
 
-	result, err := ArticleService.GetStaticArticles(param)
-	// result, err := ArticleService.GetArticles(param)
+	// result, err := ArticleService.GetStaticArticles(param)
+	result, err := ArticleService.GetArticles(param)
 	if err != nil {
 		log.Println(err)
 		return
