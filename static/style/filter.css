@@ -47,6 +47,10 @@ body {
     padding: 6px;
 }
 
+table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
+    position: static;
+}
+
 /*select2*/
 .select2-container .select2-selection--single {
     height: 36px;
