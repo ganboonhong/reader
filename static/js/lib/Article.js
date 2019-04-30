@@ -2,6 +2,34 @@
 
 class Article {
     constructor() {
+
+        $('#example').DataTable({
+            responsive: true,
+            columnDefs: [{
+                responsivePriority: 1,
+                targets: -1
+            }]
+        });
+
+        // $('#mainTable').DataTable({
+        //     responsive: true,
+        //     columnDefs: [
+
+        //         {
+        //             responsivePriority: 1,
+        //             targets: ['title_th'],
+        //         }, {
+        //             responsivePriority: 4,
+        //             targets: ['descr_th'],
+        //         }, {
+        //             responsivePriority: 3,
+        //             targets: ['published_th'],
+        //         }, {
+        //             responsivePriority: 2,
+        //             targets: ['action_th'],
+        //         }
+        //     ]
+        // });
         this.daterangepickerId = "daterangepicker";
         this.table;
         // this.newsType = Article.CONSTANT.NEWS_TYPE.EVERYTHING;
@@ -31,6 +59,7 @@ class Article {
         this.table = $('#mainTable').DataTable({
             processing: true,
             serverSide: true,
+            responsive: true,
             ordering: false,
             searching: false,
             lengthChange: false,
@@ -53,30 +82,50 @@ class Article {
 
                 {
                     targets: ['title_th'],
+                    responsivePriority: 1,
                     width: "20%",
                     render: function(data, type, row) {
                         return _t._getTitleEle(data, row)
                     },
                 }, {
                     targets: ['descr_th'],
+                    responsivePriority: 4,
                     width: "70%",
                     render: function(data, type, row) {
                         return data
                     },
                 }, {
                     targets: ['published_th'],
+                    responsivePriority: 3,
                     width: "5%",
                     render: function(data, type, row) {
                         return _t._getPublishedAtEle(data)
                     },
                 }, {
                     targets: ['action_th'],
+                    responsivePriority: 2,
                     width: "5%",
                     render: function(data, type, row) {
                         return _t._getActionEle(row)
                     },
                 }
             ],
+            // columnDefs: [
+
+            //     {
+            //         responsivePriority: 1,
+            //         targets: ['title_th'],
+            //     }, {
+            //         responsivePriority: 4,
+            //         targets: ['descr_th'],
+            //     }, {
+            //         responsivePriority: 3,
+            //         targets: ['published_th'],
+            //     }, {
+            //         responsivePriority: 2,
+            //         targets: ['action_th'],
+            //     }
+            // ],
             columns: [
 
                 {
@@ -107,7 +156,7 @@ class Article {
         const $select2 = $('#sidebar-wrapper .article_source');
         $select2.select2({
             placeholder: "Select source",
-            width: "95%",
+            width: "100%",
             multiple: true,
         });
         $select2.val('').change();
@@ -120,8 +169,12 @@ class Article {
         const $select2 = $('#sidebar-wrapper .top_headline_select2');
         $select2.select2({
             placeholder: "Select country",
-            width: "95%",
+            width: "85%",
         });
+    }
+
+    _hideFilterModal() {
+        $("#filterModal").modal('hide');
     }
 
     _bindMenuButton() {
@@ -140,6 +193,7 @@ class Article {
             }
             _t.newsType = Article.CONSTANT.NEWS_TYPE.TOPHEADLINE;
             _t.table.ajax.reload();
+            _t._hideFilterModal();
         })
     }
 
@@ -152,6 +206,7 @@ class Article {
             }
             _t.newsType = Article.CONSTANT.NEWS_TYPE.EVERYTHING
             _t.table.ajax.reload();
+            _t._hideFilterModal();
         })
     }
 

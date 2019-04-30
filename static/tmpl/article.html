@@ -13,13 +13,15 @@
   <link id="favicon" rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <!-- https://startbootstrap.com/templates/simple-sidebar/ -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">
-    <link href="static/style/sidebar.css" rel="stylesheet">
-    <link href="static/node_modules/daterangepicker/daterangepicker.css" rel="stylesheet">
-    <link href="static/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <link href="static/node_modules/select2/dist/css/select2.min.css" rel="stylesheet">
-    <link href="static/node_modules/toastr/build/toastr.min.css" rel="stylesheet">
-    <link href="static/fontawesome-free-5.8.1-web/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel="stylesheet" href="static/node_modules/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="static/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="static/node_modules/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="static/node_modules/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="static/node_modules/toastr/build/toastr.min.css">
+    <link rel="stylesheet" href="static/fontawesome-free-5.8.1-web/css/all.css">
+    <link rel="stylesheet" href="static/style/filter.css">
+
 
 
 
@@ -30,75 +32,26 @@
   <div class="d-flex toggled" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Category</div>
-      <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">
-        <b>Top Headlines</b>
-            <label for="countries">
-                Countries
-                <select id="countries" class="top_headline_select2">
-                    <option value="us">United States</option>
-                    <option value="tw">Taiwan</option>
-                    <option value="my">Malaysia</option>
-                    <option value="sg">Singapore</option>
-                </select>
-            </label>
-            <button id="submit_top_headline_filter" type="button" class="btn btn-success">Search</button>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">
-            <b>By source</b>
-            <label for="article_source">
-                Date
-                <input class="form-control" id="daterangepicker" type="text">
-                Comprehensive
-                <select id="comprehensive" class="article_source">
-                  <option value="cnn">CNN</option>
-                  <option value="time">Time</option>
-                  <option value="bbc-news">BBC News</option>
-                </select>
-                 Techology
-                <select id="tech" class="article_source">
-                  <option value="techcrunch">TechCrunch</option>
-                  <option value="wired">Wired</option>
-                  <option value="reuters">Reuters</option>
-                  <option value="the-huffington-post">HuffPost</option>
-                  <option value="engadget">Engadget</option>
-                </select>
-                Business
-                <select class="article_source">
-                  <option value="the-economist">The Economist</option>
-                  <option value="bloomberg">Bloomberg</option>
-                  <option value="business-insider">Business Insider</option>
-                </select>
-
-                Sports
-                <select class="article_source">
-                  <option value="espn">ESPN</option>
-                  <option value="bleacher-report">Bleacher Report</option>
-                  <option value="fox-sports">Fox Sports</option>
-                </select>
-            </label>
-            <button id="submit_source" type="button" class="btn btn-success">Search</button>
-        </a>
-      </div>
-    </div>
+    
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" style="margin-bottom: 10px;">
-        <button class="btn btn-primary" id="menu-toggle">Menu</button>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button class="btn btn-primary" id="menu-toggle" data-toggle="modal" data-target="#filterModal">
+            <i class="fas fa-filter"></i>
+            Filter
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
 
           <div class="col-9" style="text-align:center;">
-            <h2>News Reader</h2>
+            <h4>News Reader</h4>
           </div>
         
           <!-- <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -120,12 +73,12 @@
               </div>
             </li>
           </ul> -->
-        </div>
+        <!-- </div> -->
       </nav>
 
       <div class="container-fluid">
 
-        <table id="mainTable" class="table table-striped table-bordered" style="width:100%">
+        <table id="mainTable" class="table table-striped table-bordered dt-responsive" style="width:100%;">
             <thead>
                 <tr>
                     <th class="title_th">Title</th>
@@ -140,6 +93,7 @@
                     <td><img src="static/image/ajax-loader.gif" alt=""></td>
                     <td><img src="static/image/ajax-loader.gif" alt=""></td>
                     <td><img src="static/image/ajax-loader.gif" alt=""></td>
+                    <!-- <td>lorem</td> -->
                 </tr>
                 <!-- {{range .}}
                     <tr>
@@ -154,13 +108,87 @@
         </table>
       </div>
     </div>
-
   </div>
+
+    <div class="modal fade" id="filterModal" tabindex="-1">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Filter</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="bg-light border-right input-block-level" id="sidebar-wrapper">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action bg-light">
+                    <label for="top_headline_select2">
+                        <b>By Country</b>
+                    </label>
+                    <div style="margin-bottom: 0.5rem;">
+                        <select id="countries" class="top_headline_select2">
+                                <option value="us">United States</option>
+                                <option value="tw">Taiwan</option>
+                                <option value="my">Malaysia</option>
+                                <option value="sg">Singapore</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button id="submit_top_headline_filter" type="button" class="btn btn-success">Search</button>
+                    </div>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">
+                    <b>By Source</b>
+                    <label for="article_source">
+                        Date
+                        <input class="form-control" id="daterangepicker" type="text">
+                        Comprehensive
+                        <select id="comprehensive" class="article_source">
+                          <option value="cnn">CNN</option>
+                          <option value="time">Time</option>
+                          <option value="bbc-news">BBC News</option>
+                        </select>
+                         Techology
+                        <select id="tech" class="article_source">
+                          <option value="techcrunch">TechCrunch</option>
+                          <option value="wired">Wired</option>
+                          <option value="reuters">Reuters</option>
+                          <option value="the-huffington-post">HuffPost</option>
+                          <option value="engadget">Engadget</option>
+                        </select>
+                        Business
+                        <select class="article_source">
+                          <option value="the-economist">The Economist</option>
+                          <option value="bloomberg">Bloomberg</option>
+                          <option value="business-insider">Business Insider</option>
+                        </select>
+
+                        Sports
+                        <select class="article_source">
+                          <option value="espn">ESPN</option>
+                          <option value="bleacher-report">Bleacher Report</option>
+                          <option value="fox-sports">Fox Sports</option>
+                        </select>
+                    </label>
+                    <button id="submit_source" type="button" class="btn btn-success">Search</button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
 
     <script src="static/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="static/node_modules/tether/dist/js/tether.min.js"></script>
     <script src="static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="static/node_modules/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
     <script src="static/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="static/node_modules/moment/min/moment.min.js"></script>
     <script src="static/node_modules/daterangepicker/daterangepicker.js"></script>
