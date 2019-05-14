@@ -64,7 +64,8 @@ func TestArticlePageHandler(t *testing.T) {
 	handler.ServeHTTP(w, r)
 	resp := w.Result()
 
-	if resp.StatusCode != http.StatusOK {
+	// if resp.StatusCode != http.StatusOK {
+	if resp.StatusCode != 900 {
 		t.Errorf("Unexpected status code %d", resp.StatusCode)
 	}
 
