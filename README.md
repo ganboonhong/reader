@@ -1,3 +1,5 @@
+[![Build Status](http://y-note.ddns.net:8080/buildStatus/icon?job=newsreader)](http://y-note.ddns.net:8080/job/newsreader/)
+
 # News Reader
 A platform to read news from different sources using Go.
 
