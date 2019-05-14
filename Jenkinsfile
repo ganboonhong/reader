@@ -9,9 +9,9 @@ pipeline {
                 echo 'Building binary ...'
                 sh 'go build -o main'
                 echo 'Done: building binary'
-                echo 'building new docker image'
-                sh 'docker build -t ganboonhong/reader .'
-                echo 'Done: building new docker image'
+                // echo 'building new docker image'
+                // sh 'docker build -t ganboonhong/reader .'
+                // echo 'Done: building new docker image'
             }
         }
         stage('Test') {
@@ -21,12 +21,12 @@ pipeline {
                 echo 'Done: testing'
             }
         }
-        stage('Deploy') {
+        /*stage('Deploy') {
             steps {
                 echo 'Deploying....'
                 sh 'docker-compose down'
                 sh 'docker-compose up -d'
             }
-        }
+        }*/
     }
 }
