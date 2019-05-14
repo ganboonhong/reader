@@ -1,20 +1,9 @@
 pipeline {
-    agent any
-
+    agent { docker { image 'ganboonhong/reader' } }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                sh 'go version'
             }
         }
     }
