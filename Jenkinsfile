@@ -1,10 +1,6 @@
 pipeline {
     agent { docker { image 'golang:1.11.1' } }
 
-    environment {
-        GOPATH = '/home/francis/go'
-    }
-
     stages {
         stage('Build') {
             steps {
