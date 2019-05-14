@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'ganboonhong/reader' } }
+    agent { docker { image 'golang' } }
     stages {
         stage('build') {
             steps {
