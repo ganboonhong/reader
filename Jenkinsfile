@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'EXPORT GOPATH=/home/francis/go'
                 sh 'go build -o main'
             }
         }
