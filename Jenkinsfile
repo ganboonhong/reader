@@ -9,8 +9,16 @@ docker run \
 -v $HOME/jenkins:/var/jenkins_home \
 -v /var/run/docker.sock:/var/run/docker.sock \
 -v $HOME/.docker:/root/.docker \
--v $HOME/ jenkinsci/blueocean:latest
+jenkinsci/blueocean:latest
 
+-u user of Jenkins container (ex. some of the files in Jenkins container need root user permission to access)
+--name name of the container. So we can use `docker stop Jenkins` instead of `docker stop container_id` to control our container
+--detach run the Jenkins container in detached mode (in background)
+--publish map the host port to container port (HOST_PORT:CONTAINER_PORT)
+--v map HOST(Digitalocean droplet) $HOME/jenkins folder to Jenkins container folder /var/jenkins_home
+--v map the docker socket from HOST to Jenkins container in order to use the `docker` command, ex. `docker build`
+--v map the docker login config from HOST to Jenkins container, which will be use in `docker login` step
+jenkinsci/blueocean:latest the image to run
 
 */
 pipeline {
