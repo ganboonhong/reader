@@ -34,7 +34,7 @@ pipeline {
                 echo 'Done: testing'
             }
         }
-        
+        // 
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
