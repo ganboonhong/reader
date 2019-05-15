@@ -4,6 +4,7 @@ pipeline {
             image 'golang:1.11.1'
             // in order to use docker command, we need to map the docker command in 'jenkins' container to 'current testing' container (golang:1.11.1)
             args '-v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker'
+            // 
         }
     }
 
