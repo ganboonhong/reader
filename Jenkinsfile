@@ -35,12 +35,11 @@ pipeline {
                 echo 'Done: testing'
             }
         }
-        // 
+
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'docker-compose down'
-                sh 'docker-compose up -d'
+                sh './docker-compose-reload'
             }
         }
     }
