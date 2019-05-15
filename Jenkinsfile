@@ -38,8 +38,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
-                sh './docker-compose-reload.sh'
+                echo 'Please run ./docker-compose-reload.sh manually to reload'
             }
         }
     }
