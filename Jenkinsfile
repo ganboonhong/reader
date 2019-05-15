@@ -14,9 +14,9 @@ pipeline {
                 echo 'Building binary ...'
                 sh 'go build -o main'
                 echo 'Done: building binary'
-                // echo 'building new docker image'
+                echo 'building new docker image'
                 sh 'docker build -t ganboonhong/reader .'
-                // echo 'Done: building new docker image'
+                echo 'Done: building new docker image'
             }
         }
         stage('Test') {
