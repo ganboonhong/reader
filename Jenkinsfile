@@ -1,6 +1,10 @@
 pipeline {
-    // agent { docker { image 'golang:1.11.1' } }
-    agent any
+    agent { 
+        docker { 
+            image 'golang:1.11.1'
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
 
     stages {
         stage('Build') {
