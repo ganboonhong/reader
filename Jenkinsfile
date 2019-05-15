@@ -22,6 +22,7 @@ pipeline {
                 echo 'Done: building new docker image'
 
                 echo 'pushing new image'
+                sh 'pwd'
                 sh 'docker push ganboonhong/reader'
                 echo 'Done: pushing new image'
             }
