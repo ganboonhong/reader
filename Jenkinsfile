@@ -45,15 +45,6 @@ pipeline {
                 echo 'Building binary ...'
                 sh 'go build -o main'
                 echo 'Done: building binary'
-
-                echo 'building new docker image'
-                sh 'docker build -t ganboonhong/reader .'
-                echo 'Done: building new docker image'
-
-                echo 'pushing new image'
-                sh 'docker login'
-                sh 'docker push ganboonhong/reader'
-                echo 'Done: pushing new image'
             }
         }
 
@@ -62,6 +53,19 @@ pipeline {
                 echo 'Running tests'
                 sh 'go test ./...'
                 echo 'Done: testing'
+            }
+        }
+
+        stage('Push Image') {
+            steps {
+                echo 'building new docker image'
+                sh 'docker build -t ganboonhong/reader .'
+                echo 'Done: building new docker image'
+
+                echo 'pushing new image'
+                sh 'docker login'
+                sh 'docker push ganboonhong/reader'
+                echo 'Done: pushing new image'
             }
         }
 
