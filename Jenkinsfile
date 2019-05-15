@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'golang:1.11.1' } }
+    // agent { docker { image 'golang:1.11.1' } }
 
     stages {
         stage('Build') {
@@ -10,7 +10,7 @@ pipeline {
                 sh 'go build -o main'
                 echo 'Done: building binary'
                 // echo 'building new docker image'
-                sh 'sudo docker build -t ganboonhong/reader .'
+                sh 'docker build -t ganboonhong/reader .'
                 // echo 'Done: building new docker image'
             }
         }
