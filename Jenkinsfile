@@ -17,7 +17,7 @@ jenkinsci/blueocean:latest
 --publish map the host port to container port (HOST_PORT:CONTAINER_PORT)
 --v map HOST(Digitalocean droplet) $HOME/jenkins folder to Jenkins container folder /var/jenkins_home
 --v map the docker socket from HOST to Jenkins container in order to use the `docker` command, ex. `docker build`
---v map the docker login config from HOST to Jenkins container, which will be use in `docker login` step
+--v map the docker login config json file from HOST to Jenkins container, which will be use in `docker login` step (you need to login to docker from the HOST layer to generate that json config)
 jenkinsci/blueocean:latest the image to run
 
 */
