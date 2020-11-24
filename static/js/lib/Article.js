@@ -65,7 +65,7 @@ class Article {
             lengthChange: false,
             ajax: {
                 url: "get_article",
-                data: function(dt) {
+                data: function (dt) {
                     return {
                         draw: ++draw,
                         s_date: $(`#${_t.daterangepickerId}`).data('daterangepicker').startDate.format('YYYY-MM-DD'),
@@ -84,28 +84,28 @@ class Article {
                     targets: ['title_th'],
                     responsivePriority: 1,
                     width: "20%",
-                    render: function(data, type, row) {
+                    render: function (data, type, row) {
                         return _t._getTitleEle(data, row)
                     },
                 }, {
                     targets: ['descr_th'],
                     responsivePriority: 4,
                     width: "70%",
-                    render: function(data, type, row) {
+                    render: function (data, type, row) {
                         return data
                     },
                 }, {
                     targets: ['published_th'],
                     responsivePriority: 3,
                     width: "5%",
-                    render: function(data, type, row) {
+                    render: function (data, type, row) {
                         return _t._getPublishedAtEle(data)
                     },
                 }, {
                     targets: ['action_th'],
                     responsivePriority: 2,
                     width: "5%",
-                    render: function(data, type, row) {
+                    render: function (data, type, row) {
                         return _t._getActionEle(row)
                     },
                 }
@@ -160,7 +160,13 @@ class Article {
             multiple: true,
         });
         $select2.val('').change();
-        $('#sidebar-wrapper #countries').val('us').change(); // default source
+        $('#sidebar-wrapper #countries').val('tw').change(); // default source
+        // $('#sidebar-wrapper #countries').val('us').change(); // default source
+        // $('#sidebar-wrapper #tech').val('techcrunch').change(); // default source
+    }
+
+    _initTopHeadlineSelect2() {
+        const _t = this;
         // $('#sidebar-wrapper #tech').val('techcrunch').change(); // default source
     }
 
@@ -178,7 +184,7 @@ class Article {
     }
 
     _bindMenuButton() {
-        $("#menu-toggle").click(function(e) {
+        $("#menu-toggle").click(function (e) {
             e.preventDefault();
             $("#wrapper").toggleClass("toggled");
         });
@@ -186,7 +192,7 @@ class Article {
 
     _bindSubmitTopHeadlineFilter() {
         const _t = this;
-        $("#sidebar-wrapper").on("click", "#submit_top_headline_filter", function() {
+        $("#sidebar-wrapper").on("click", "#submit_top_headline_filter", function () {
             if (!_t._getTopHeadlineFilter()) {
                 toastr.warning("Please select country")
                 return;
@@ -199,7 +205,7 @@ class Article {
 
     _bindSubmitSourceFilter() {
         const _t = this;
-        $("#sidebar-wrapper").on("click", "#submit_source", function() {
+        $("#sidebar-wrapper").on("click", "#submit_source", function () {
             if (!_t._getSourceFilter().length) {
                 toastr.warning("Please select a source")
                 return;
@@ -216,7 +222,7 @@ class Article {
 
     _getSourceFilter() {
         let sources = [];
-        $("#sidebar-wrapper .article_source").each(function() {
+        $("#sidebar-wrapper .article_source").each(function () {
             const selected = $(this).val();
             sources.push(...selected)
         });
