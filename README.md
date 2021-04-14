@@ -26,34 +26,34 @@ A platform to read news from different sources using Go.
 News API: https://newsapi.org/
 
 ### run on local (with docker command)
-**Build**  
+**Build**
 Build image:
 `cd ~/go/src/github.com/ganboonhong/reader`  // cd to reader root directory where Dockerfile resides
-`docker build -t ganboonhong/reader .`  
+`docker build -t ganboonhong/reader .`
 (-t: image tag)
 
-**Run**  
-Run Docker image to get Docker container:  
-`docker run -d -p 80:8080 reader`  
+**Run**
+Run Docker image to get Docker container: 
+`docker run -d -p 80:8080 reader`
 (-d: detached mode, -p: port mapping,  Docker_host_port:container_port, reader: image name)
 
-**Container**  
-Remove a container: `docker rm CONTAINER_ID`  
-Stop a container: `docker stop CONTAINER_ID`  
-Start a container: `docker start CONTAINER_ID`  
-Force the removal of a running container: `docker rm -f CONTAINER_ID` (stop and remove)  
-List active containers: `docker ps`  
-List all containers: `docker ps -a`  
-Remove all containers: `docker rm $(docker ps -aq)`  
+**Container** 
+Remove a container: `docker rm CONTAINER_ID` 
+Stop a container: `docker stop CONTAINER_ID` 
+Start a container: `docker start CONTAINER_ID` 
+Force the removal of a running container: `docker rm -f CONTAINER_ID` (stop and remove) 
+List active containers: `docker ps` 
+List all containers: `docker ps -a` 
+Remove all containers: `docker rm $(docker ps -aq)` 
 
-**Image**  
+**Image** 
 List images: `docker images`
-Show unstagged images: `docker images -f dangling=true` (-f: filter)  
-Remove single image: `docker rmi IMAGE_ID`  
+Show unstagged images: `docker images -f dangling=true` (-f: filter) 
+Remove single image: `docker rmi IMAGE_ID` 
 Remove all unstageged images: `docker rmi $(docker images -f dangling=true -q)`
 
 
 ### run on local (with docker-compose cmd)
-Build image and start container:  
-`cd ~/go/src/github.com/ganboonhong/reader`  // cd to reader root directory where docker-compose.yml resides  
-`docker-compose up`  
+Build image and start container: 
+`cd ~/go/src/github.com/ganboonhong/reader`  // cd to reader root directory where docker-compose.yml resides 
+`docker-compose up` 
