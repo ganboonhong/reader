@@ -13,5 +13,5 @@ const (
 
 func main() {
 	router.SetRouter()
-	log.Fatal(http.ListenAndServe(":" + port, nil))
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
