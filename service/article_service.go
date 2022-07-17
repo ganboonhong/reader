@@ -27,8 +27,8 @@ const (
 	NewsApiKey = "07751a198b5440929cd22fc907b10389"
 )
 
-func (a ArticleService) GetArticles(param *model.ArticlesParam) (*model.ArticleResult, error) {
-	c := newsapi.NewClient(NewsApiKey, newsapi.WithHTTPClient(http.DefaultClient))
+func (a ArticleService) GetArticles(param *model.ArticlesParam, userAgent string) (*model.ArticleResult, error) {
+	c := newsapi.NewClient(NewsApiKey, newsapi.WithHTTPClient(http.DefaultClient), newsapi.WithUserAgent(userAgent))
 	var b []byte
 	var ArticleResponse *newsapi.ArticleResponse
 	var err error
@@ -120,7 +120,7 @@ func (a ArticleService) GetArticleHandler(w http.ResponseWriter, r *http.Request
 	}
 
 	// result, err := ArticleService.GetStaticArticles(param)
-	result, err := ArticleService.GetArticles(param)
+	result, err := ArticleService.GetArticles(param, r.UserAgent())
 	if err != nil {
 		log.Println(err)
 		return
