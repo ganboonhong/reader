@@ -1,4 +1,4 @@
-FROM golang:1.11.1 as builder
+FROM golang:1.18 as builder
 # We create an /go/src/github.com/ganboonhong/reader directory in which
 # we'll put all of our project code
 WORKDIR /go/src/github.com/ganboonhong/reader
