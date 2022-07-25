@@ -83,30 +83,16 @@ class Article {
                 {
                     targets: ['title_th'],
                     responsivePriority: 1,
-                    width: "20%",
+                    width: "40%",
                     render: function (data, type, row) {
                         return _t._getTitleEle(data, row)
                     },
                 }, {
                     targets: ['descr_th'],
-                    responsivePriority: 4,
-                    width: "70%",
+                    responsivePriority: 2,
+                    width: "60%",
                     render: function (data, type, row) {
                         return data
-                    },
-                }, {
-                    targets: ['published_th'],
-                    responsivePriority: 3,
-                    width: "5%",
-                    render: function (data, type, row) {
-                        return _t._getPublishedAtEle(data)
-                    },
-                }, {
-                    targets: ['action_th'],
-                    responsivePriority: 2,
-                    width: "5%",
-                    render: function (data, type, row) {
-                        return _t._getActionEle(row)
                     },
                 }
             ],
@@ -132,10 +118,6 @@ class Article {
                     data: "title",
                 }, {
                     data: "description",
-                }, {
-                    data: "publishedAt",
-                }, {
-                    data: "url",
                 }
             ]
         });
@@ -216,10 +198,6 @@ class Article {
         })
     }
 
-    _getPublishedAtEle(data) {
-        return moment(data).format('YYYY-MM-DD HH:mm:ss');
-    }
-
     _getSourceFilter() {
         let sources = [];
         $("#sidebar-wrapper .article_source").each(function () {
@@ -235,18 +213,32 @@ class Article {
     }
 
     _getTitleEle(data, row) {
-        let str = `<b>${row.Source.name}</b> - `;
-        str += data;
-        return str;
-    }
-
-    _getActionEle(row) {
-
-        let str = `
-            <a href="${row.url}" target="_blank" title="Open in new tab">
-                <i class="fas fa-external-link-alt fa-2x"></i>
-            </a>
-        `;
-        return str;
+        const publishedAt = moment(row.publishedAt).fromNow();
+		let imageTd = '';
+		if (row.urlToImage) {
+			imageTd = `
+			<td width="140px" class="title-td">
+				<a href="${row.url}" target="_blank" title="Open in new tab">
+					<img style="display: block; " width="140px" src="${row.urlToImage}" />
+				</a>
+			</td>`;
+		}
+        return `
+		<table>
+			<tr class="title-tr">
+				${imageTd}
+				<td class="title-td">
+					<a href="${row.url}" target="_blank" title="Open in new tab">
+						<i class="fas fa-external-link-alt fa"></i>
+						<span style="color: black;">${data}</span>
+					</a>
+					<span style="color: #8c8c8c; font-size: 12px;">
+						<br>
+						${row.Source.name}  |  ${publishedAt}
+					</span>
+				</td>
+			</tr>
+		</table>
+		`;
     }
 }
