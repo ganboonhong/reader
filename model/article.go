@@ -13,6 +13,7 @@ type Article struct {
 	PublishedAt  string `json:"publishedAt"`
 	Content      string `json:"content"`
 	Source       Source `json:source`
+	URLToImage   string `json:"urlToImage"`
 	TotalResults int    `json:totalResults`
 }
 
