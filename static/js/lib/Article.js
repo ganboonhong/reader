@@ -32,8 +32,8 @@ class Article {
         // });
         this.daterangepickerId = "daterangepicker";
         this.table;
-        // this.newsType = Article.CONSTANT.NEWS_TYPE.EVERYTHING;
-        this.newsType = Article.CONSTANT.NEWS_TYPE.TOPHEADLINE;
+        this.newsType = Article.CONSTANT.NEWS_TYPE.EVERYTHING;
+        // this.newsType = Article.CONSTANT.NEWS_TYPE.TOPHEADLINE;
 
         this._initDateRangePicker(); // _initMainTable's dependency
         this._initArticleSourceSelect2();
@@ -127,6 +127,7 @@ class Article {
         const _t = this;
         const $daterangepicker = $(`#${this.daterangepickerId}`)
         $daterangepicker.daterangepicker({
+            startDate: moment().subtract(1, 'day'),
             locale: {
                 format: "DD/MM/YY"
             }
@@ -142,9 +143,12 @@ class Article {
             multiple: true,
         });
         $select2.val('').change();
-        $('#sidebar-wrapper #countries').val('tw').change(); // default source
+        // $('#sidebar-wrapper #countries').val('tw').change(); // default source
         // $('#sidebar-wrapper #countries').val('us').change(); // default source
-        // $('#sidebar-wrapper #tech').val('techcrunch').change(); // default source
+        $('#sidebar-wrapper #tech').val('techcrunch').change(); // default source
+        $('#sidebar-wrapper #comprehensive').val('cnn').change(); // default source
+        $('#sidebar-wrapper #business').val('business-insider').change(); // default source
+        $('#sidebar-wrapper #sports').val('bleacher-report').change(); // default source
     }
 
     _initTopHeadlineSelect2() {
