@@ -61,4 +61,3 @@ $ docker rmi $(docker images -f dangling=true -q) // Remove all unstageged image
 
 $ docker-compose up // create and start containers according to docker-compose.yml file
 ```
-test commit directly to master
